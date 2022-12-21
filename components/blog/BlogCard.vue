@@ -3,7 +3,7 @@
       <div v-if="post.image" class="hidden sm:flex flex-shrink-0 bg-gray-900">
         <img class="h-36 w-full object-cover" :src="post.image" alt="Blog Image">
       </div>
-      <div class="flex-1 bg-gray-900 p-5 flex flex-col justify-between">
+      <div class="flex-1 bg-white p-5 flex flex-col justify-between">
         <div class="flex-1">
           <p class="text-xs font-medium text-hot-pink hover:text-hot-pink">
             <a href="#" class="hover:underline hover:text-hot-pink">
