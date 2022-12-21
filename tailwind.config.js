@@ -9,13 +9,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'black': '#12151E',
+        'black': '#FFFFFF',
         'hot-pink': '#fd2d78',
         'gray-900': '#18191a',
         'gray-800': '#212324',
         'gray-700': '#2F3133',
         'gray-600': '#404345',
-        'gray-500': '#55585A',
+        'gray-500': '#FFFFFF',
         'gray-400': '#797B7C',
         'gray-300': '#A7A8A8',
         'gray-200': '#D3D4D4',
@@ -26,9 +26,9 @@ module.exports = {
         dark: {
           css: [
             {
-              color: theme('colors.gray.500'),
+              color: theme('colors.black'),
               '[class~="lead"]': {
-                color: theme('colors.gray.300'),
+                color: theme('colors.black'),
               },
               a: {
                 color: theme('colors.indigo.500'),
