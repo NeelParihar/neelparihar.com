@@ -2,7 +2,7 @@
   <div class="bg-white border-t border-b border-dashed border-gray-200">
     <div data-aos="fade-up" class="max-w-7xl mx-auto border-l border-r border-dashed border-gray-200">
       <div class="max-w-prose text-center mx-auto py-4">
-        <p class="text-xs leading-6 text-indigo-600 font-semibold tracking-wide lowercase">{{ $t('githubCalendar.subtext') }}</p>
+        <p class="text-xs leading-6 text-primary font-semibold tracking-wide lowercase">{{ $t('githubCalendar.subtext') }}</p>
         <a :href="`https://github.com/${$config.social.github}`" target="_blank" rel="noreferrer" class="mt-2 text-3xl hover:text-hot-pink leading-8 font-extrabold tracking-tight text-gray-800">{{ $t('githubCalendar.header') }}</a>
       </div>
       <div class="calendar max-w-6xl content-center lowercase">
@@ -65,7 +65,7 @@ export default {
 }
 
 .calendar >>> .width-full > .float-left a {
-  @apply pl-8 text-sm text-gray-400 hover:text-indigo-500;
+  @apply pl-8 text-sm text-gray-400 hover:text-primary;
 }
 
 >>> text.ContributionCalendar-label {

@@ -7,7 +7,7 @@
             <div class="px-4 sm:px-6 lg:border-r lg:border-dashed lg:border-gray-200 sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center">
               <div>
                 <nuxt-link v-if="$config.blog.enabled" :to="localePath('/blog')" class="group inline-flex hover:bg-black items-center text-white bg-gray-900 rounded-full p-0.5 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200">
-                  <span class="px-3 py-0.5 text-white text-xs font-semibold leading-5 tracking-wide bg-indigo-600 rounded-full">{{ $t('hero.iBlogTech') }}</span>
+                  <span class="px-3 py-0.5 text-white text-xs font-semibold leading-5 tracking-wide bg-primary rounded-full">{{ $t('hero.iBlogTech') }}</span>
                   <span class="ml-4 text-xs">{{$t('hero.haveALook')}}</span>
                   <svg class="transition duration-500 transform block group-hover:rotate-180 hover-arrow ml-2 w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
@@ -60,15 +60,15 @@ export default {
 
 <style scoped>
 >>> .vue-typer .custom.char {
-  @apply text-indigo-600;
+  @apply text-primary;
 }
 >>> .vue-typer .custom.char.selected {
-  @apply bg-indigo-600 text-white;
+  @apply bg-primary text-white;
 }
 
 >>> .vue-typer .custom.caret {
   width: 5px;
-  @apply bg-indigo-600;
+  @apply bg-primary;
 }
 
 .hover-arrow {

@@ -27,7 +27,7 @@
           </div>
           <div class="ml-3">
             <p class="text-xs font-medium text-gray-200">
-              <a target="_blank" rel="noreferrer" :href="`https://twitter.com/${post.author.twitter}`" class="hover:text-indigo-600">
+              <a target="_blank" rel="noreferrer" :href="`https://twitter.com/${post.author.twitter}`" class="hover:text-primary">
                 {{ post.author.name }}
               </a>
             </p>
