@@ -30,11 +30,11 @@ export default {
     // codestats: 'karngyan' // https://codestats.net make a profile if you dont already have one.
   },
   buyMeACoffee: {
-    enabled: false,
+    enabled: true,
     url: 'https://www.buymeacoffee.com/neelparihar'
   },
   projects: {
-    enabled: false,
+    enabled: true,
   },
   blog: {
     enabled: false,

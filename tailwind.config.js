@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'primary': '#205295',
         'black': '#FFFFFF',
         'hot-pink': '#fd2d78',
         'gray-900': '#18191a',
@@ -31,7 +32,7 @@ module.exports = {
                 color: theme('colors.black'),
               },
               a: {
-                color: theme('colors.indigo.500'),
+                color: theme('colors.primary'),
               },
               strong: {
                 color: theme('colors.gray.200'),
