@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col rounded-xl shadow-lg overflow-hidden" >
+  <div class="flex flex-col transition duration-700 ease-in-out transform hover:scale-110 rounded-xl shadow-lg overflow-hidden" >
       <div class="flex-1 bg-white p-5 flex flex-row justify-between">
         <div class="flex-1 flex flex-col justify-between">
           <div>
