@@ -6,11 +6,11 @@ export default {
   image: '/images/avatar.png',
   email: 'contact@neelparihar.com',
   googleAnalyticsV4: {
-    enabled: false,
-    id: ''
+    enabled: true,
+    id: 'G-QHQT2WMY87'
   },
   plausibleAnalytics: {
-    enabled: true,
+    enabled: false,
     domain: 'neelparihar.com',
     trackLocalhost: false,
     // leave it empty if plausible is not self hosted
