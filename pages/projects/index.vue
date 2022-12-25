@@ -1,5 +1,5 @@
 <template>
-  <div class="relative max-w-7xl border-r border-l border-dashed border-gray-700 py-6 mx-auto">
+  <div class="relative max-w-7xl border-r border-l border-dashed border-gray-200 py-6 mx-auto">
     <div data-aos="fade-up" class="text-center">
       <h2 class="text-2xl tracking-tight font-extrabold text-gray-800">
         {{ $t('projects.header') }}
