@@ -6,7 +6,7 @@ export default {
   image: '/images/avatar.png',
   email: 'contact@neelparihar.com',
   googleAnalyticsV4: {
-    enabled: true,
+    enabled: false,
     id: 'G-QHQT2WMY87'
   },
   plausibleAnalytics: {

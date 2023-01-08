@@ -201,7 +201,7 @@ const nuxtConfig = {
   loadingIndicator: {
     name: config.loadingIndicator.name || 'chasing-dots',
     color: '#fd2d78',
-    background: '#212324'
+    background: 'white'
   },
 
   loading: {
