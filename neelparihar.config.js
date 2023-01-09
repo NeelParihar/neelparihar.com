@@ -41,7 +41,7 @@ export default {
   },
   resume: {
     enabled: false,
-    pdfUrl: '/RESUME_GYAN_KARN_DARK.pdf' // add files in static folder
+    pdfUrl: '/NeelParihar_FE.pdf' // add files in static folder
   },
   uses: {
     enabled: false,

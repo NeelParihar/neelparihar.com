@@ -59,7 +59,7 @@
 export default {
   head() {
     return {
-      title: `uses -- ${this.$config.name}`
+      title: `uses - ${this.$config.name}`
     }
   },
   data() {
