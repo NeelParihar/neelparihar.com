@@ -41,7 +41,7 @@ export default {
   },
   resume: {
     enabled: false,
-    pdfUrl: '/NeelParihar_FE.pdf' // add files in static folder
+    pdfUrl: '/NeelParihar2023.pdf' // add files in static folder
   },
   uses: {
     enabled: false,
@@ -58,7 +58,6 @@ export default {
     // add logos in static and at max add 3/4
     enabled: true,
     meta: [
-      // { name: 'SendPost', src: '/images/sendpost.png', url: 'https://sendpost.io' },
       { name: 'TerminusDB', src: '/images/terminusdb.png', url: 'https://terminusdb.com/' },
       { name: 'Classplus', src: '/images/classplus.png', url: 'https://classplusapp.com/' },
       { name: 'Sapio Analytics', src: '/images/sapio.jpeg', url: 'https://sapioanalytics.com/' },
