@@ -13,8 +13,6 @@ export default {
     enabled: false,
     domain: 'neelparihar.com',
     trackLocalhost: false,
-    // leave it empty if plausible is not self hosted
-    apiHost: 'https://analytics.lookatx.dev' // default: https://plausible.io
   },
   // enable if you want comments and likes on posts
   // see how it looks on karngyan.com
@@ -105,7 +103,7 @@ export default {
         iBlogTech: 'i blog tech',
         haveALook: 'have a look',
         friendlyNeighborhood: 'your friendly neighborhood',
-        description: 'I am a software engineer with a passion for solving problems and building innovative solutions. I have a strong background in web development and a particular interest in back-end technologies.',
+        description: 'I am a software engineer with a passion for solving problems and building innovative solutions. I have a strong background in web development and a particular interest in front-end technologies.',
         words: ['developer', 'engineer', 'programmer', "photographer", "videographer"],
       },
       githubCalendar: {
