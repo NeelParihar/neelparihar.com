@@ -1,7 +1,7 @@
 ---
 id: 4
-title: Night Navigator
-description: Night Navigator project is a application based on features to search for different places which consists of nearby lodge/ restaurants, chemists/ hospitals, navigation to the desired route and also estimation of cab prices
+title: night navigator
+description: night navigator project is a application based on features to search for different places which consists of nearby lodge/ restaurants, chemists/ hospitals, navigation to the desired route and also estimation of cab prices
 tech: android java gcp firebase
 logo: /images/nightlife.png
 # website: https://lookatx.dev

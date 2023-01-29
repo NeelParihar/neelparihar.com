@@ -1,6 +1,6 @@
 ---
 id: 4
-title: XMeme
+title: xmeme
 description: a community website whcih ca be used for uploading and sharing memes with fellow xmemers
 tech: express nodejs react mongodb aws
 logo: /images/xmeme.png

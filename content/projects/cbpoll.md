@@ -1,6 +1,6 @@
 ---
 id: 2
-title: CB Poll
+title: cb poll
 description: create an online poll, where users can give votes to a poll anonymously.  
 tech: react material-ui firebase
 logo: /images/cbpoll.png
