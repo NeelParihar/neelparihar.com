@@ -6,7 +6,7 @@ export default {
   image: '/images/avatar.png',
   email: 'contact@neelparihar.com',
   googleAnalyticsV4: {
-    enabled: false,
+    enabled: true,
     id: 'G-QHQT2WMY87'
   },
   plausibleAnalytics: {
@@ -22,10 +22,8 @@ export default {
   social: {
     github: 'NeelParihar',
     linkedin: 'neel-parihar',
-    // facebook: 'karnsometimes',
     twitter: 'neelparihar0',
-    instagram: 'neell.___',
-    // codestats: 'karngyan' // https://codestats.net make a profile if you dont already have one.
+    instagram: 'neelpariharr',
   },
   buyMeACoffee: {
     enabled: true,
@@ -38,7 +36,7 @@ export default {
     enabled: false,
   },
   resume: {
-    enabled: false,
+    enabled: true,
     pdfUrl: '/NeelParihar2023.pdf' // add files in static folder
   },
   uses: {
