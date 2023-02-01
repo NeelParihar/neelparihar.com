@@ -47,6 +47,10 @@ export default {
   border: none;
 }
 
+>>> .graph-before-activity-overview > .Box-header > .width-full {
+  display: none;
+}
+
 .calendar {
   border: none;
 }
