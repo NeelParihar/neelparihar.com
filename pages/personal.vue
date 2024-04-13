@@ -95,15 +95,15 @@
             <div class="p-6 mt-4 border-t border-gray-200 dark:border-gray-800">
                 <div class="grid  grid-cols-1 md:grid-cols-2 gap-4 ">
                     <img alt="Hinge Image 1" class="rounded-lg object-cover w-full" height="400"
-                        src="/personal/IMG_1457.png" style="aspect-ratio:400/400;object-fit:cover" width="400" />
+                        src="/images/IMG_1457.png" style="aspect-ratio:400/400;object-fit:cover" width="400" />
                     <img alt="Hinge Image 2" class="rounded-lg object-cover w-full" height="400"
-                        src="/personal/IMG_0676.png" style="aspect-ratio:400/400;object-fit:cover" width="400" />
+                        src="/images/IMG_0676.png" style="aspect-ratio:400/400;object-fit:cover" width="400" />
                     <img alt="Hinge Image 3" class="rounded-lg object-cover w-full" height="400"
-                        src="/personal/IMG_1170.png" style="aspect-ratio:400/400;object-fit:cover" width="400" />
+                        src="/images/IMG_1170.png" style="aspect-ratio:400/400;object-fit:cover" width="400" />
                     <img alt="Hinge Image 3" class="rounded-lg object-cover w-full" height="400"
-                        src="/personal/IMG_1472.png" style="aspect-ratio:400/400;object-fit:cover" width="400" />
+                        src="/images/IMG_1472.png" style="aspect-ratio:400/400;object-fit:cover" width="400" />
                     <img alt="Hinge Image 3" class="rounded-lg object-cover w-full" height="400"
-                        src="/personal/IMG_3523.png" style="aspect-ratio:400/400;object-fit:cover" width="400" />
+                        src="/images/IMG_3523.png" style="aspect-ratio:400/400;object-fit:cover" width="400" />
 
                 </div>
             </div>
