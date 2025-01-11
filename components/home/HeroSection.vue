@@ -24,21 +24,19 @@
                 </nuxt-link>
                 <h1
                   class="mt-4 text-3xl tracking-tight font-extrabold text-gray-800 sm:mt-5 sm:leading-none lg:mt-6 lg:text-3xl xl:text-3xl">
-                  <span class="md:block">{{ $t('hero.friendlyNeighborhood') }}</span>
-                  <div>
-                    <vue-typer :text="$t('hero.words')"></vue-typer>
-                  </div>
+                 {{ $t('hero.friendlyNeighborhood') }}
+                  
                 </h1>
                 <p class="mt-3 text-base text-gray-300 sm:mt-5">
                   {{ $t('hero.description') }}
                 </p>
                 <p v-if="$config.workedAt.enabled"
-                  class="mt-8 text-sm text-gray lowercase tracking-wide font-semibold sm:mt-10">Worked at</p>
+                  class="mt-8 text-sm text-gray lowercase tracking-wide font-semibold sm:mt-10">Worked for</p>
                 <div v-if="$config.workedAt.enabled" class="mt-5 w-full sm:mx-auto lg:ml-0">
-                  <div class="flex flex-wrap space-x-1 items-start items-center space-x-4 md:space-x-10">
+                  <div class="flex flex-wrap space-x-1 items-start items-center space-x-4 md:space-x-8">
                     <div v-for="(firm, index) in $config.workedAt.meta" :key="index">
                       <a :href="firm.url" target="_blank" rel="noreferrer" class="flex items-center justify-center">
-                        <img :src="firm.src" class="h-8 rounded-sm sm:h-9" :alt="firm.name" />
+                        <img :src="firm.src" class="h-8 rounded-sm sm:h-10" :alt="firm.name" />
                       </a>
                     </div>
                   </div>
