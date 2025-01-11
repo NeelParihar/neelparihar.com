@@ -1,11 +1,11 @@
 <template>
-  <div class="max-w-7xl px-4 mx-auto py-12 border-l border-r border-dashed border-gray-700">
+  <div class="max-w-7xl px-4 mx-auto py-12 border-l border-r border-dashed border-gray-200">
     <div class="shadow-md max-w-5xl mx-auto bg-gray-700 overflow-hidden rounded-lg divide-gray-800">
       <div data-aos="fade-up"  class="bg-gray-900 py-3 px-6 flex justify-between items-center">
         <h1 class="text-lg flex flex-row font-semibold text-gray-200"><span class="pr-1">{{ $t('nav.resume') }}</span>
           - <span class="pl-1 hidden md:block">{{ $config.name }}</span></h1>
         <a target="_blank" rel="noreferrer" :href="$config.resume.pdfUrl" :download="`${$config.name}.pdf`"
-           class="inline-flex text-indigo-500 hover:text-indigo-600 items-center px-2 py-1 border
+           class="inline-flex text-primary hover:text-hot-pink items-center px-2 py-1 border
            border-transparent shadow-sm text-sm font-medium
            rounded-md btn-color-style">
           <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-3 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

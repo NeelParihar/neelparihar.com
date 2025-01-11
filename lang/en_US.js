@@ -1,3 +1,3 @@
-import config from '../karngyan.config'
+import config from '../neelparihar.config'
 
 export default config.strings.en_US

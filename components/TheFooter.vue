@@ -1,6 +1,6 @@
 <template>
-  <footer class="bg-gray-800">
-    <div class="max-w-7xl border-l border-r border-dashed border-gray-700 mx-auto px-4">
+  <footer class="bg-white">
+    <div class="max-w-7xl border-l border-r border-dashed border-gray-200 mx-auto px-4">
       <div class="pt-5 pb-12 md:flex md:items-center md:justify-between">
         <div class="flex space-x-6 md:order-2">
           <a v-if="$config.social.facebook" target="_blank" rel="noreferrer"  :href="`https://facebook.com/${$config.social.facebook}`" class="text-gray-400 hover:text-gray-300">
@@ -37,16 +37,7 @@
           </a>
         </div>
         <p class="mt-8 text-sm leading-6 text-gray-400 md:mt-0 md:order-1">
-          {{ $config.name }} • dev template by <span class="ceator-preview hover:text-hot-pink text-gray-300">
-          <a class="hidden md:inline-block" rel="noreferrer" target="_blank" href="https://github.com/karngyan/karngyan.com">
-          <creator-preview
-            :avatar="avatar"
-            :name="name"
-            :description="description"
-            :content="content" :mode="mode" />
-          </a>
-          <a class="inline-block md:hidden" target="_blank" href="https://github.com/karngyan/karngyan.com">{{ name }} </a>
-          </span>
+          {{ $config.name }} 
         </p>
       </div>
     </div>
