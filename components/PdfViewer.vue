@@ -6,7 +6,7 @@
         Back
       </a>
       <a class="ui active item">
-        {{page}} / {{ numPages ? numPages : '∞' }}
+        {{ page }} / {{ numPages ? numPages : '∞' }}
       </a>
       <a class="item" @click="page < numPages ? page++ : 1">
         Forward
@@ -16,7 +16,7 @@
     <div ref="buttons" class="ui grey three item inverted bottom fixed menu transition hidden">
       <a class="item" @click="scale -= scale > 0.2 ? 0.1 : 0">
         <i class="left chevron icon" />
-          Zoom -
+        Zoom -
       </a>
       <a class="ui active item">
         {{ formattedZoom }} %
@@ -26,11 +26,8 @@
         <i class="right chevron icon" />
       </a>
     </div>
-    <pdf :src="pdfdata" v-for="i in numPages" :key="i" :id="i" :page="i"
-      :scale.sync="scale" style="width:100%;margin:8px auto;"
-        :annotation="true"
-        :resize="true"
-        @link-clicked="handle_pdf_link">
+    <pdf :src="pdfdata" v-for="i in numPages" :key="i" :id="i" :page="i" :scale.sync="scale"
+      style="width:100%;margin:8px auto;" :annotation="true" :resize="true" @link-clicked="handle_pdf_link">
       <template slot="loading">
         loading content here...
       </template>
@@ -39,8 +36,10 @@
 </template>
 
 <script>
-import pdfvuer from 'pdfvuer'
-import 'pdfjs-dist/build/pdf.worker.entry'
+// import pdfvuer from 'pdfvuer'
+// import 'pdfvuer/node_modules/pdfjs-dist/legacy/build/pdf.js'
+
+// import 'pdfjs-dist/legacy/build/pdf.worker.js'
 
 export default {
   props: {
@@ -50,9 +49,9 @@ export default {
     }
   },
   components: {
-    pdf: pdfvuer
+    // pdf: pdfvuer
   },
-  data () {
+  data() {
     return {
       page: 1,
       numPages: 0,
@@ -62,21 +61,21 @@ export default {
     }
   },
   computed: {
-    formattedZoom () {
-        return Number.parseInt(this.scale * 100);
+    formattedZoom() {
+      return Number.parseInt(this.scale * 100);
     },
   },
-  mounted () {
+  mounted() {
     this.getPdf()
   },
   watch: {
     show: function (s) {
-      if(s) {
+      if (s) {
         this.getPdf();
       }
     },
     page: function (p) {
-      if( window.pageYOffset <= this.findPos(document.getElementById(p)) || ( document.getElementById(p+1) && window.pageYOffset >= this.findPos(document.getElementById(p+1)) )) {
+      if (window.pageYOffset <= this.findPos(document.getElementById(p)) || (document.getElementById(p + 1) && window.pageYOffset >= this.findPos(document.getElementById(p + 1)))) {
         // window.scrollTo(0,this.findPos(document.getElementById(p)));
         document.getElementById(p).scrollIntoView();
       }
@@ -89,7 +88,7 @@ export default {
       const page = document.getElementById(String(params.pageNumber));
       page.scrollIntoView();
     },
-    getPdf () {
+    getPdf() {
       const self = this;
       self.pdfdata = pdfvuer.createLoadingTask(this.src);
       self.pdfdata.then(pdf => {
@@ -114,8 +113,8 @@ export default {
         const changePage = () => {
           let i = 1, count = Number(pdf.numPages);
           do {
-            if(window.pageYOffset >= self.findPos(document.getElementById(i)) &&
-                window.pageYOffset <= self.findPos(document.getElementById(i+1))) {
+            if (window.pageYOffset >= self.findPos(document.getElementById(i)) &&
+              window.pageYOffset <= self.findPos(document.getElementById(i + 1))) {
               self.page = i
             }
             i++
@@ -135,12 +134,13 @@ export default {
 <style src="pdfvuer/dist/pdfvuer.css"></style>
 
 <style lang="css" scoped>
-  .buttons {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-  /* Page content */
-  .content {
-    padding: 12px;
-  }
+.buttons {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Page content */
+.content {
+  padding: 12px;
+}
 </style>
