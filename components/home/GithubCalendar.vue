@@ -1,13 +1,18 @@
 <template>
   <div class="bg-white border-t border-b border-dashed border-gray-200">
-    <div data-aos="fade-up" class="max-w-7xl mx-auto border-l border-r border-dashed border-gray-200">
+    <div data-aos="fade-up"
+      class="max-w-7xl mx-auto border-l border-r border-dashed border-gray-200 flex flex-col items-center">
       <div class="max-w-prose text-center mx-auto py-4">
-        <p class="text-xs leading-6 text-primary font-semibold tracking-wide lowercase">{{ $t('githubCalendar.subtext') }}</p>
-        <a :href="`https://github.com/${$config.social.github}`" target="_blank" rel="noreferrer" class="mt-2 text-3xl hover:text-hot-pink leading-8 font-extrabold tracking-tight text-gray-800">{{ $t('githubCalendar.header') }}</a>
+        <p class="text-xs leading-6 text-primary font-semibold tracking-wide lowercase">{{ $t('githubCalendar.subtext')
+          }}</p>
+        <a :href="`https://github.com/${$config.social.github}`" target="_blank" rel="noreferrer"
+          class="mt-2 text-3xl hover:text-hot-pink leading-8 font-extrabold tracking-tight text-gray-800">{{
+            $t('githubCalendar.header') }}</a>
       </div>
-      <div class="calendar max-w-6xl content-center lowercase">
+      <img class=" w-full my-10 px-10 lowercase" src="https://ghchart.rshah.org/205295/neelparihar"
+        alt="neel's Github chart" />
 
-      </div>
+
     </div>
   </div>
 </template>
@@ -23,31 +28,31 @@ export default {
 </script>
 
 <style scoped>
->>> rect.ContributionCalendar-day[data-level='0'] {
+/* >>>rect.ContributionCalendar-day[data-level='0'] {
   @apply fill-current text-gray-100;
 }
 
->>> rect.ContributionCalendar-day[data-level='1'] {
+>>>rect.ContributionCalendar-day[data-level='1'] {
   fill: rgb(14, 68, 41);
 }
 
->>> rect.ContributionCalendar-day[data-level='2'] {
+>>>rect.ContributionCalendar-day[data-level='2'] {
   fill: rgb(0, 109, 50);
 }
 
->>> rect.ContributionCalendar-day[data-level='3'] {
+>>>rect.ContributionCalendar-day[data-level='3'] {
   fill: rgb(38, 166, 65);
 }
 
->>> rect.ContributionCalendar-day[data-level='4'] {
+>>>rect.ContributionCalendar-day[data-level='4'] {
   fill: rgb(57, 211, 83);
 }
 
->>> .graph-before-activity-overview {
+>>>.graph-before-activity-overview {
   border: none;
 }
 
->>> .graph-before-activity-overview > .Box-header > .width-full {
+>>>.graph-before-activity-overview>.Box-header>.width-full {
   display: none;
 }
 
@@ -55,44 +60,37 @@ export default {
   border: none;
 }
 
-.calendar >>> .width-full > .float-right {
+.calendar>>>.width-full>.float-right {
   @apply text-sm text-gray-400 flex flex-row items-center justify-center px-4;
 }
 
-.calendar >>> .width-full > .float-right svg {
+.calendar>>>.width-full>.float-right svg {
   @apply mx-0.5;
 }
 
 
-.calendar >>> .width-full > .float-left {
+.calendar>>>.width-full>.float-left {
   @apply flex items-center justify-center;
 }
 
-.calendar >>> .width-full > .float-left a {
+.calendar>>>.width-full>.float-left a {
   @apply pl-8 text-sm text-gray-400 hover:text-primary;
 }
 
->>> text.ContributionCalendar-label {
+>>>text.ContributionCalendar-label {
   font-size: 9px;
   @apply text-gray-500;
 }
 
->>> .contrib-column {
+>>>.contrib-column {
   @apply border-none;
 }
 
->>> .contrib-number {
+>>>.contrib-number {
   @apply text-gray-400 font-bold;
 }
 
->>> .text-muted {
+>>>.text-muted {
   @apply text-gray-300;
-}
-
-/*@media (min-width: 768px) {*/
-/*  .calendar {*/
-/*    padding-right: 3rem !important;*/
-/*  }*/
-/*}*/
-
+} */
 </style>
