@@ -52,7 +52,8 @@
     "gulp-cloudfront-invalidate-aws-publish": "^1.0.0",
     "postcss": "^8.4.49",
     "sass": "^1.32.8",
-    "sass-loader": "^10.1.1"
+    "sass-loader": "^10.1.1",
+    "vue-server-renderer": "^2.15.3"
   },
   "engines": {
     "node": ">=18.20.5"
