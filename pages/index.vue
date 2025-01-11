@@ -1,9 +1,9 @@
 <template>
   <div>
-    <HeroSection/>
-    <GithubCalendar v-if="$config.social.github"/>
-    <Recommendations v-if="$config.recommendations.enabled"/>
-    <LazyRecentBlog v-if="$config.blog.enabled && posts" :posts="posts"/>
+    <HeroSection />
+    <GithubCalendar v-if="$config.social.github" />
+    <Recommendations v-if="$config.recommendations.enabled" />
+    <LazyRecentBlog v-if="$config.blog.enabled && posts" :posts="posts" />
   </div>
 </template>
 
@@ -39,5 +39,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>
