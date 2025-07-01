@@ -37,7 +37,7 @@ export default {
   },
   resume: {
     enabled: true,
-    pdfUrl: "/NeelParihar2023.pdf", // add files in static folder
+    pdfUrl: "/NeelParihar2025.pdf", // add files in static folder
   },
   uses: {
     enabled: false,
