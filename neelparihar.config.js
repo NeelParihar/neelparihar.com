@@ -71,7 +71,7 @@ export default {
       {
         name: "TerminusDB",
         src: "/images/terminusdb.png",
-        url: "https://terminusdb.com/",
+        url: "https://terminusdb.org/",
       },
       {
         name: "Classplus",
