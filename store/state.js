@@ -1,9 +1,7 @@
-const state = {
-  user: null,
-  comments: {},
-  likes: {}
-}
-
 export default function () {
-  return state;
+  return {
+    user: null,
+    comments: {},
+    likes: {}
+  };
 };

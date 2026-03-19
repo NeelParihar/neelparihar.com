@@ -76,7 +76,7 @@ const nuxtConfig = {
       },
       { name: "author", content: config.name },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: config.social },
+      { property: "og:url", content: `https://${config.domain}` },
       {
         property: "og:title",
         content: `${config.name} | friendly neighborhood developer`,
@@ -87,8 +87,8 @@ const nuxtConfig = {
       },
       { property: "og:image", content: `${config.image}` },
 
-      { property: "twitter:card", content: `${config.image}` },
-      { property: "twitter:url", content: `${config.domain}` },
+      { property: "twitter:card", content: "summary_large_image" },
+      { property: "twitter:url", content: `https://${config.domain}` },
       {
         property: "twitter:title",
         content: `${config.name} | friendly neighborhood developer`,
@@ -100,7 +100,7 @@ const nuxtConfig = {
       { property: "twitter:image", content: `${config.image}` },
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "favicon.ico" },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       { rel: "stylesheet", href: "https://rsms.me/inter/inter.css" },
     ],
   },
@@ -113,7 +113,6 @@ const nuxtConfig = {
     { src: "~/plugins/vuetyper.js", ssr: false },
     { src: "~/plugins/directives.js", ssr: false },
     { src: "~/plugins/aos.js", ssr: false },
-    { src: "~/plugins/vueGtag.js", ssr: false },
     { src: "~/plugins/vueClapButton.js", ssr: false },
   ],
 
@@ -189,7 +188,7 @@ const nuxtConfig = {
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {
-    liveEdit: true,
+    liveEdit: false,
     dir: "content",
     markdown: {
       prism: {
@@ -203,10 +202,6 @@ const nuxtConfig = {
     splitChunks: {
       layout: true,
     },
-  },
-
-  tailwindcss: {
-    jit: true,
   },
 
   loadingIndicator: {
