@@ -127,8 +127,3 @@ html {
   transform: rotate(12deg);
 }
 </style>
-<script>
-
-export default {
-}
-</script>
