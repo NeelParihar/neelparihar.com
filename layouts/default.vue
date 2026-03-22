@@ -65,7 +65,7 @@ html {
   top: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(90deg, #205295, #fd2d78);
+  background: #205295;
   z-index: 9998;
   pointer-events: none;
   transition: width 0.05s linear;
