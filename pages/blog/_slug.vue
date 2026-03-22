@@ -5,9 +5,9 @@
 
         <!-- Top bar: breadcrumb + share actions -->
         <div class="py-2 border-t border-b border-dashed border-gray-200 flex flex-wrap items-center justify-between gap-3">
-          <div class="text-primary font-bold text-sm">
-            <nuxt-link class="hover:text-primary" :to="localePath('/blog')">{{ $t('blog.header') }}</nuxt-link>
-            <span class="text-gray-300 mx-1">/</span>
+          <div class="font-bold text-sm">
+            <nuxt-link class="text-primary hover:text-primary" :to="localePath('/blog')">{{ $t('blog.header') }}</nuxt-link>
+            <span class="text-gray-400 mx-1">/</span>
             <span class="text-gray-500">{{ post.category }}</span>
           </div>
 
