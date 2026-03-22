@@ -1,14 +1,14 @@
 <template>
-  <div class="max-w-7xl mx-auto border-gray-700 border-dashed border-l border-r">
-    <div class="dark antialiased text-gray-200">
+  <div class="max-w-7xl mx-auto border-gray-200 border-dashed border-l border-r">
+    <div class="antialiased text-gray-700">
       <div class="px-4 py-6 max-w-6xl mx-auto sm:px-6 lg:px-8">
 
         <!-- Top bar: breadcrumb + share actions -->
-        <div class="py-2 border-t border-b border-dashed border-gray-700 flex flex-wrap items-center justify-between gap-3">
+        <div class="py-2 border-t border-b border-dashed border-gray-200 flex flex-wrap items-center justify-between gap-3">
           <div class="text-primary font-bold text-sm">
             <nuxt-link class="hover:text-primary" :to="localePath('/blog')">{{ $t('blog.header') }}</nuxt-link>
-            <span class="text-gray-700 mx-1">/</span>
-            <span class="text-gray-400">{{ post.category }}</span>
+            <span class="text-gray-300 mx-1">/</span>
+            <span class="text-gray-500">{{ post.category }}</span>
           </div>
 
           <!-- Share buttons -->
@@ -62,7 +62,7 @@
           <!-- Article content -->
           <article class="lg:col-span-3" ref="article" data-aos="fade-up">
             <!-- Post header -->
-            <div class="px-4 sm:px-6 pb-6 bg-gray-900 rounded-xl">
+            <div class="px-4 sm:px-6 pb-6 bg-white border border-gray-100 rounded-xl shadow-sm">
               <a
                 target="_blank"
                 rel="noreferrer"
@@ -72,13 +72,13 @@
                   <UserAvatar
                     :photoURL="post.author.image"
                     :name="post.author.name"
-                    class="w-12 h-12 border-2 border-indigo-600 hover:border-hot-pink -mt-5 bg-gray-900 rounded-full"
+                    class="w-12 h-12 border-2 border-indigo-400 hover:border-hot-pink -mt-5 bg-white rounded-full"
                   />
                 </div>
               </a>
 
               <header class="py-4 text-center">
-                <h1 class="text-2xl font-extrabold text-gray-100 tracking-tight leading-snug">{{ post.title }}</h1>
+                <h1 class="text-2xl font-extrabold text-gray-900 tracking-tight leading-snug">{{ post.title }}</h1>
                 <dl class="mt-2">
                   <dd class="text-xs font-medium text-gray-500">
                     <a target="_blank" rel="noreferrer" :href="`https://twitter.com/${post.author.twitter}`">
@@ -104,7 +104,7 @@
               </header>
 
               <!-- Post body -->
-              <div class="prose dark:prose-dark break-words my-4 prose-sm max-w-4xl mx-auto" ref="articleContent">
+              <div class="prose break-words my-4 prose-sm max-w-4xl mx-auto" ref="articleContent">
                 <nuxt-content :document="post" />
               </div>
             </div>
@@ -114,7 +114,7 @@
               <div class="my-6">
                 <Like :slug="post.slug" />
               </div>
-              <div id="comments" class="border-t border-gray-700 border-dashed mt-6 py-5">
+              <div id="comments" class="border-t border-gray-200 border-dashed mt-6 py-5">
                 <CommentInput :slug="post.slug" />
               </div>
               <div class="space-y-4 max-w-7xl">
@@ -125,15 +125,15 @@
             <!-- Prev / Next navigation -->
             <div
               v-if="prevPost || nextPost"
-              class="mt-10 pt-8 border-t border-gray-700 border-dashed grid grid-cols-1 sm:grid-cols-2 gap-4"
+              class="mt-10 pt-8 border-t border-gray-200 border-dashed grid grid-cols-1 sm:grid-cols-2 gap-4"
             >
               <nuxt-link
                 v-if="prevPost"
                 :to="localePath(`/blog/${prevPost.slug}`)"
-                class="group flex flex-col p-4 rounded-xl bg-gray-900 hover:bg-gray-800 transition-colors"
+                class="group flex flex-col p-4 rounded-xl bg-gray-50 border border-gray-100 hover:bg-gray-100 transition-colors"
               >
-                <span class="text-xs text-gray-500 mb-1">← Previous</span>
-                <span class="text-sm font-semibold text-gray-200 group-hover:text-primary line-clamp-2 transition-colors">
+                <span class="text-xs text-gray-400 mb-1">← Previous</span>
+                <span class="text-sm font-semibold text-gray-700 group-hover:text-primary line-clamp-2 transition-colors">
                   {{ prevPost.title }}
                 </span>
               </nuxt-link>
@@ -142,10 +142,10 @@
               <nuxt-link
                 v-if="nextPost"
                 :to="localePath(`/blog/${nextPost.slug}`)"
-                class="group flex flex-col p-4 rounded-xl bg-gray-900 hover:bg-gray-800 transition-colors text-right"
+                class="group flex flex-col p-4 rounded-xl bg-gray-50 border border-gray-100 hover:bg-gray-100 transition-colors text-right"
               >
-                <span class="text-xs text-gray-500 mb-1">Next →</span>
-                <span class="text-sm font-semibold text-gray-200 group-hover:text-primary line-clamp-2 transition-colors">
+                <span class="text-xs text-gray-400 mb-1">Next →</span>
+                <span class="text-sm font-semibold text-gray-700 group-hover:text-primary line-clamp-2 transition-colors">
                   {{ nextPost.title }}
                 </span>
               </nuxt-link>
@@ -153,7 +153,7 @@
 
             <!-- Related posts -->
             <div v-if="related && related.length" class="mt-10">
-              <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-4">Related posts</h3>
+              <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-4">Related posts</h3>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <BlogCard v-for="p in related" :key="p.slug" :post="p" />
               </div>
@@ -415,34 +415,34 @@ export default {
   font-size: 0.7rem;
   font-weight: 600;
   border-radius: 6px;
-  border: 1px solid #2F3133;
+  border: 1px solid #e5e7eb;
   background: transparent;
-  color: #A7A8A8;
+  color: #6b7280;
   cursor: pointer;
   transition: color 0.15s, border-color 0.15s, background 0.15s;
 }
 
 .share-btn:hover {
-  color: #fff;
+  color: #205295;
   border-color: #205295;
-  background: rgba(32, 82, 149, 0.15);
+  background: rgba(32, 82, 149, 0.06);
 }
 
 .share-btn--copied {
-  color: #42b883;
-  border-color: #42b883;
-  background: rgba(66, 184, 131, 0.1);
+  color: #059669;
+  border-color: #059669;
+  background: rgba(5, 150, 105, 0.06);
 }
 
 /* ToC links */
 .toc-link {
-  color: #797B7C;
+  color: #9ca3af;
   border-left: 2px solid transparent;
   padding-left: 8px;
 }
 
 .toc-link:hover {
-  color: #D3D4D4;
+  color: #374151;
 }
 
 .toc-link--active {
@@ -464,9 +464,9 @@ export default {
   font-size: 11px;
   font-weight: 600;
   font-family: inherit;
-  background: rgba(255, 255, 255, 0.08);
-  color: #797B7C;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.15);
+  color: #d1d5db;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -475,7 +475,7 @@ export default {
 
 >>> .nuxt-content pre .copy-btn:hover,
 >>> .nuxt-content pre .copy-btn.copied {
-  background: rgba(32, 82, 149, 0.35);
+  background: rgba(32, 82, 149, 0.5);
   color: #fff;
   border-color: #205295;
 }
