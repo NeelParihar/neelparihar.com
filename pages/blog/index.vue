@@ -45,8 +45,27 @@ export default {
     }
   },
   head() {
+    const title = `Blog — ${this.$config.name}`
+    const description = this.$t('blog.subtext')
+    const url = `https://${this.$config.domain}/blog`
+    const image = this.$config.image
     return {
-      title: `blog - ${this.$config.name}`
+      title,
+      meta: [
+        { hid: 'description', name: 'description', content: description },
+        // Open Graph
+        { hid: 'og:type', property: 'og:type', content: 'website' },
+        { hid: 'og:url', property: 'og:url', content: url },
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'og:description', property: 'og:description', content: description },
+        { hid: 'og:image', property: 'og:image', content: image },
+        // Twitter Card
+        { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+        { hid: 'twitter:url', name: 'twitter:url', content: url },
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'twitter:description', name: 'twitter:description', content: description },
+        { hid: 'twitter:image', name: 'twitter:image', content: image },
+      ],
     }
   },
   async asyncData({ $content }) {
