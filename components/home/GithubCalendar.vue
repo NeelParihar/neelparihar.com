@@ -6,8 +6,9 @@
         <p class="text-xs leading-6 text-primary font-semibold tracking-wide lowercase">{{ $t('githubCalendar.subtext')
           }}</p>
         <a :href="`https://github.com/${$config.social.github}`" target="_blank" rel="noreferrer"
-          class="mt-2 text-3xl hover:text-hot-pink leading-8 font-extrabold tracking-tight text-gray-800">{{
-            $t('githubCalendar.header') }}</a>
+          class="mt-2 text-3xl hover:text-hot-pink leading-8 font-extrabold tracking-tight text-gray-800">
+          <ScrambleText :text="$t('githubCalendar.header')" />
+        </a>
       </div>
       <img class=" w-full my-10 px-10 lowercase" src="https://ghchart.rshah.org/205295/neelparihar"
         alt="neel's Github chart" />
