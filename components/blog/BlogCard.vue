@@ -39,14 +39,14 @@
           </div>
           <div class="ml-2">
             <p class="text-xs font-medium text-gray-700">{{ post.author.name }}</p>
-            <div class="flex text-xs text-gray-500">
+            <div class="flex text-xs text-gray-600">
               <time :datetime="post.createdAt">
                 {{ new Date(post.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) }}
               </time>
             </div>
           </div>
         </div>
-        <span class="text-xs text-gray-400">{{ post.readingTime }}</span>
+        <span class="text-xs text-gray-500">{{ post.readingTime }}</span>
       </div>
     </div>
   </nuxt-link>
