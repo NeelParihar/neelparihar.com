@@ -1,5 +1,11 @@
 <template>
-  <div class="flex flex-col transition duration-700 ease-in-out transform hover:scale-110 rounded-xl shadow-lg overflow-hidden" >
+  <div
+    class="project-card flex flex-col rounded-xl shadow-lg overflow-hidden"
+    :class="{ 'no-tilt': !tiltEnabled }"
+    @mousemove="onTilt"
+    @mouseleave="resetTilt"
+    @mouseenter="onEnter"
+  >
       <div class="flex-1 bg-white p-5 flex flex-row justify-between">
         <div class="flex-1 flex flex-col justify-between">
           <div>
@@ -44,10 +50,60 @@ export default {
     project: {
       type: Object
     }
+  },
+
+  data() {
+    return { tiltEnabled: false }
+  },
+
+  mounted() {
+    if (typeof window === 'undefined') return
+    // Only enable tilt on pointer-fine (mouse) devices
+    this.tiltEnabled =
+      window.matchMedia('(pointer: fine)').matches &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  },
+
+  methods: {
+    onEnter() {
+      if (!this.tiltEnabled) return
+      this.$el.style.transition = 'transform 0.1s ease'
+    },
+
+    onTilt(e) {
+      if (!this.tiltEnabled) return
+      const rect = this.$el.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+      const cx = rect.width / 2
+      const cy = rect.height / 2
+      const rotX = ((y - cy) / cy) * -7
+      const rotY = ((x - cx) / cx) * 7
+      this.$el.style.transition = 'transform 0.08s ease'
+      this.$el.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.03, 1.03, 1.03)`
+    },
+
+    resetTilt() {
+      if (!this.tiltEnabled) return
+      this.$el.style.transition = 'transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1)'
+      this.$el.style.transform = ''
+    }
   }
 }
 </script>
 
 <style scoped>
+.project-card {
+  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
 
+/* Fallback hover scale for touch devices */
+.project-card.no-tilt {
+  transition: transform 0.7s ease-in-out;
+}
+
+.project-card.no-tilt:hover {
+  transform: scale(1.05);
+}
 </style>
