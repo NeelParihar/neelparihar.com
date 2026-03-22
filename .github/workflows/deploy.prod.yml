@@ -23,10 +23,10 @@ jobs:
       MEASUREMENT_ID: ${{ secrets.MEASUREMENT_ID }}
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '14'
+          node-version: '20'
 
       - name: Install Gulp
         run: yarn global add gulp

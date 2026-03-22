@@ -116,7 +116,7 @@ export default {
     // three-bounce
     // wandering-cubes
   },
-  laguageSwitcher: {
+  languageSwitcher: {
     enabled: true,
   },
   strings: {
@@ -146,7 +146,7 @@ export default {
       blog: {
         header: "blog",
         subtext:
-          "i try to write once in a while. let me know your thoughts in comments or mail@karngyan.com",
+          "i try to write once in a while. let me know your thoughts in comments or neelparihar599@gmail.com",
       },
       recentBlog: {
         header: "recent blogs",

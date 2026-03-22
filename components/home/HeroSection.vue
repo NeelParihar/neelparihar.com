@@ -51,7 +51,7 @@
                 <div class="eye-patch" style="left: 254px; top: 118px;"> </div>
                 <div class="eye-patch" style="left: 322px; top: 118px;"></div>
                 <img class="eye" style="left: 262px; top: 116px;" src="/images/eye2.png" alt="eye1" />
-                <img class="eye" style="left: 322px; top: 116px;" src="/images/eye2.png" alt="eye1" />
+                <img class="eye" style="left: 322px; top: 116px;" src="/images/eye2.png" alt="eye2" />
               </div>
             </div>
           </div>
@@ -96,7 +96,7 @@ export default {
     const mainX = rekt.left + rekt.width / 2;
     const mainY = rekt.top + rekt.height / 2;
 
-    document.addEventListener("mousemove", (e) => {
+    this._mouseMoveHandler = (e) => {
       const mouseX = e.clientX
       const mouseY = e.clientY
 
@@ -107,7 +107,11 @@ export default {
       eyes.forEach((eye) => {
         eye.style.transform = `rotate(${90 + deg}deg)`;
       })
-    })
+    };
+    document.addEventListener("mousemove", this._mouseMoveHandler);
+  },
+  beforeDestroy() {
+    document.removeEventListener("mousemove", this._mouseMoveHandler);
   },
   data() {
     return {

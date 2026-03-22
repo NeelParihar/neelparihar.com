@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="hidden md:flex flex-row space-x-2 items-center justify-center">
-        <div v-if="$config.laguageSwitcher.enabled">
+        <div v-if="$config.languageSwitcher.enabled">
           <nuxt-link v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)" class="text-gray-300 hover:text-white" >{{ locale.name }}</nuxt-link>
         </div>
         <div v-if="$config.firebase.enabled">
