@@ -8,7 +8,7 @@
           <div class="font-bold text-sm">
             <nuxt-link class="text-primary hover:text-primary" :to="localePath('/blog')">{{ $t('blog.header') }}</nuxt-link>
             <span class="text-gray-400 mx-1">/</span>
-            <span class="text-gray-500">{{ post.category }}</span>
+            <span class="text-gray-600">{{ post.category }}</span>
           </div>
 
           <!-- Share buttons -->
