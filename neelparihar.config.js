@@ -99,6 +99,13 @@ export default {
         content:
           "Neel worked full-time with TerminusDB for around 1 year. He is a very strong full-stack engineer who can create pixel-perfect frontends while being able to work on complex nodejs projects such as creating database sdk's. He is a quick learner, a great team player, and has a very strong work ethic. You can rely on him that things will be done with utmost quality.",
       },
+      {
+        name: "Ankita Chaudhary",
+        designation: "VP of Product & Strategy, Rivi",
+        image: "/images/ankita.jpeg",
+        linkedin: "https://www.linkedin.com/in/chaudhary-ankita/",
+        content: "",
+      },
     ],
   },
   loadingIndicator: {
