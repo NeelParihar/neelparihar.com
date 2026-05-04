@@ -92,8 +92,6 @@ There's a version of vibe coding and agentic coding that makes frontend developm
 
 There's also a version where the abstraction gap between what developers understand and what they ship widens until something breaks badly and nobody knows why. That's the risk. Not displacement — **hollowing out.**
 
-## Where I Land
-
 Frontend development isn't going away. The shape of it is changing faster than most people are adjusting to. The developers who treat AI as a tool they understand deeply — who know when to trust the output and when to interrogate it — will be significantly more productive than those who don't.
 
 The developers who outsource their understanding along with their implementation are building on sand. It holds fine until something shifts.
