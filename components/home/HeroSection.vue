@@ -47,11 +47,23 @@
               <div
                 class="flex-shrink-0 w-full sm:mx-auto flex flex-1 items-center justify-center rounded-lg sm:overflow-hidden"
                 style="position:relative" id="imageAvatar">
-                <img class="rounded-md h-80" :src="$config.image" :alt="$config.name" />
+                <img class="rounded-md h-80 avatar-float" :src="$config.image" :alt="$config.name" />
+                <!-- Hair wind wisps -->
+                <svg class="hair-wisps" style="position:absolute; top:0; left:50%; transform:translateX(-50%); width:320px; height:75px; pointer-events:none;" aria-hidden="true">
+                  <path class="wisp wisp-1" d="M60,70 C80,50 100,20 140,10" stroke="#3d2b1f" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.55"/>
+                  <path class="wisp wisp-2" d="M90,72 C110,48 135,22 170,8" stroke="#3d2b1f" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+                  <path class="wisp wisp-3" d="M160,68 C175,44 190,20 220,6" stroke="#3d2b1f" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.45"/>
+                  <path class="wisp wisp-4" d="M200,70 C215,50 230,26 258,12" stroke="#3d2b1f" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+                </svg>
+                <!-- Eye patches -->
                 <div class="eye-patch" style="left: 254px; top: 118px;"> </div>
                 <div class="eye-patch" style="left: 322px; top: 118px;"></div>
+                <!-- Tracking eyes -->
                 <img class="eye" style="left: 262px; top: 116px;" src="/images/eye2.png" alt="eye1" />
                 <img class="eye" style="left: 322px; top: 116px;" src="/images/eye2.png" alt="eye2" />
+                <!-- Blinking eyelids -->
+                <div class="eyelid eyelid-left" style="left: 254px; top: 112px;"></div>
+                <div class="eyelid eyelid-right" style="left: 322px; top: 112px;"></div>
               </div>
             </div>
           </div>
@@ -74,13 +86,61 @@
   background: #ffdbb4;
 }
 
+/* Blinking eyelids */
+.eyelid {
+  position: absolute;
+  width: 22px;
+  height: 18px;
+  background: #ffdbb4;
+  transform-origin: top center;
+  transform: scaleY(0);
+  animation: blink 4s ease-in-out infinite;
+}
+
+.eyelid-right {
+  animation-delay: 0.05s;
+}
+
+@keyframes blink {
+  0%, 93%  { transform: scaleY(0); }
+  95%, 97% { transform: scaleY(1); }
+  99%, 100%{ transform: scaleY(0); }
+}
+
+/* Hair wind wisps */
+.wisp {
+  transform-origin: bottom center;
+  animation: hair-sway 3s ease-in-out infinite;
+}
+.wisp-2 { animation-delay: 0.3s; }
+.wisp-3 { animation-delay: 0.6s; }
+.wisp-4 { animation-delay: 0.9s; }
+
+@keyframes hair-sway {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  30%      { transform: translateX(4px) rotate(1.5deg); }
+  60%      { transform: translateX(-3px) rotate(-1deg); }
+}
+
+/* Avatar idle float */
+.avatar-float {
+  animation: float-idle 3.5s ease-in-out infinite;
+}
+
+@keyframes float-idle {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
 @media (max-width: 1278px) {
-  .eye {
+  .eye, .eye-patch, .eyelid, .hair-wisps {
     display: none;
   }
+}
 
-  .eye-patch {
-    display: none;
+@media (prefers-reduced-motion: reduce) {
+  .eyelid, .wisp, .avatar-float {
+    animation: none;
   }
 }
 </style>
