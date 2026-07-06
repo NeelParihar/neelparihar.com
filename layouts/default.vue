@@ -1,5 +1,15 @@
 <template>
   <div>
+    <SplashScreen />
+    <MagneticCursor />
+
+    <!-- Scroll progress bar -->
+    <div
+      class="scroll-progress-bar"
+      :style="{ width: scrollProgress + '%' }"
+      aria-hidden="true"
+    />
+
     <TheNavBar />
     <Nuxt />
     <TheFooter />
@@ -8,6 +18,28 @@
 
 <script>
 export default {
+  data() {
+    return { scrollProgress: 0 }
+  },
+
+  mounted() {
+    this._rafPending = false
+    this._onScroll = () => {
+      if (this._rafPending) return
+      this._rafPending = true
+      requestAnimationFrame(() => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight
+        this.scrollProgress = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0
+        this._rafPending = false
+      })
+    }
+    window.addEventListener('scroll', this._onScroll, { passive: true })
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('scroll', this._onScroll)
+  }
 }
 </script>
 
@@ -25,6 +57,19 @@ html {
 
 ::selection {
   @apply bg-hot-pink text-white;
+}
+
+/* Scroll progress bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #205295;
+  z-index: 9998;
+  pointer-events: none;
+  transition: width 0.05s linear;
+  will-change: width;
 }
 
 /* Page-transition styles must be global */
@@ -126,9 +171,10 @@ html {
   opacity: 0;
   transform: rotate(12deg);
 }
-</style>
-<script>
 
-export default {
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress-bar {
+    transition: none;
+  }
 }
-</script>
+</style>

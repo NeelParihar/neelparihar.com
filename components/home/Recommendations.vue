@@ -6,12 +6,14 @@
           }}</p>
         <div v-if="$config.social.linkedin">
           <a :href="`https://linkedin.com/in/${$config.social.linkedin}`" target="_blank" rel="noreferrer"
-            class="mt-2 text-3xl hover:text-hot-pink leading-8 font-extrabold tracking-tight text-gray-800">{{
-              $t('recommendations.header') }}</a>
+            class="mt-2 text-3xl hover:text-hot-pink leading-8 font-extrabold tracking-tight text-gray-800">
+            <ScrambleText :text="$t('recommendations.header')" />
+          </a>
         </div>
         <div v-else>
-          <div class="mt-2 text-3xl hover:text-hot-pink leading-8 font-extrabold tracking-tight text-gray-800">{{
-            $t('recommendations.header') }}</div>
+          <div class="mt-2 text-3xl hover:text-hot-pink leading-8 font-extrabold tracking-tight text-gray-800">
+            <ScrambleText :text="$t('recommendations.header')" />
+          </div>
         </div>
       </div>
 
@@ -25,7 +27,7 @@
                   <cite class="flex items-center rounded-b-lg not-italic">
                     <div
                       class="flex-shrink-0 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 rounded-full border border-hot-pink mr-4">
-                      <img class="w-8 h-8 rounded-full bg-indigo-300" :src="rec.image" alt="Varun">
+                      <img class="w-8 h-8 rounded-full bg-indigo-300" :src="rec.image" :alt="rec.name">
                     </div>
                     <span class="text-gray-400 font-semibold py-2">
                       <strong class="text-gray-600 font-semibold">{{ rec.name }}</strong>
@@ -54,13 +56,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-
-    }
-  },
-  methods: {
-  }
 }
 </script>
 

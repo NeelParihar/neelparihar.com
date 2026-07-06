@@ -3,7 +3,7 @@
 export default {
   name: "Neel Parihar",
   domain: "neelparihar.com", // add without https:// , used in meta tags and share urls
-  image: "/images/avatar.png",
+  image: "https://neelparihar.com/images/avatar.png",
   email: "contact@neelparihar.com",
   googleAnalyticsV4: {
     enabled: true,
@@ -33,7 +33,7 @@ export default {
     enabled: true,
   },
   blog: {
-    enabled: false,
+    enabled: true,
   },
   resume: {
     enabled: true,
@@ -104,7 +104,8 @@ export default {
         designation: "VP of Product & Strategy, Rivi",
         image: "/images/ankita.jpeg",
         linkedin: "https://www.linkedin.com/in/chaudhary-ankita/",
-        content: "",
+        content:
+          "Neel brought great speed, strong frontend skills, and a real focus on quality to his work. From building our AI chat experience for complex travel use cases to leading frontend efforts for clients like Decathlon Play, he made meaningful contributions throughout his time with us. He may be on the quieter side, but he more than makes up for it with his sharp skillset and ability to deliver. I'm really glad we got to work together and wish him the very best for what's ahead. 😊",
       },
     ],
   },
@@ -123,7 +124,7 @@ export default {
     // three-bounce
     // wandering-cubes
   },
-  laguageSwitcher: {
+  languageSwitcher: {
     enabled: true,
   },
   strings: {
@@ -153,7 +154,7 @@ export default {
       blog: {
         header: "blog",
         subtext:
-          "i try to write once in a while. let me know your thoughts in comments or mail@karngyan.com",
+          "i try to write once in a while. let me know your thoughts in comments or neelparihar599@gmail.com",
       },
       recentBlog: {
         header: "recent blogs",
