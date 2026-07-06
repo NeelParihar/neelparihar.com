@@ -6,7 +6,7 @@ tech: express nodejs react mongodb aws tailwindcss
 logo: /images/apnikaksha.jpeg
 website: https://www.apnikaksha.net/
 github: https://github.com/ApniKaksha
-twitter: neelparihar0
+twitter: neelpariharr
 ---
 
 comming soon :)

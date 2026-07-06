@@ -74,16 +74,36 @@ export default {
     }
   },
   head() {
+    const projectUrl = `https://${this.$config.domain}/projects/${this.project.slug}`
     return {
       title: this.project.title + ` -- projects -- ${this.$config.name}`,
       meta: [
         { hid: 'description', name: 'description', content: this.project.description },
-        // Open Graph
         { hid: 'og:title', property: 'og:title', content: this.project.title },
         { hid: 'og:description', property: 'og:description', content: this.project.description },
-        // Twitter Card
+        { hid: 'og:type', property: 'og:type', content: 'website' },
+        { hid: 'og:url', property: 'og:url', content: projectUrl },
         { hid: 'twitter:title', name: 'twitter:title', content: this.project.title },
         { hid: 'twitter:description', name: 'twitter:description', content: this.project.description }
+      ],
+      script: [
+        {
+          type: 'application/ld+json',
+          json: {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            name: this.project.title,
+            description: this.project.description,
+            url: this.project.website || projectUrl,
+            applicationCategory: 'WebApplication',
+            author: {
+              '@type': 'Person',
+              name: this.$config.name,
+              url: `https://${this.$config.domain}`,
+            },
+            codeRepository: this.project.github || undefined,
+          }
+        }
       ]
     }
   },

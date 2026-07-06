@@ -28,6 +28,7 @@ const constructFeedItem = (post, hostname) => {
     link: url,
     description: post.description,
     content: post.bodyPlainText,
+    author: [{ name: post.author?.name, link: post.author?.twitter ? `https://twitter.com/${post.author.twitter}` : undefined }],
   };
 };
 
@@ -85,7 +86,7 @@ const nuxtConfig = {
         property: "og:description",
         content: config.strings.en_US.hero.description,
       },
-      { property: "og:image", content: `${config.image}` },
+      { property: "og:image", content: config.image },
 
       { property: "twitter:card", content: "summary_large_image" },
       { property: "twitter:url", content: `https://${config.domain}` },
@@ -97,11 +98,33 @@ const nuxtConfig = {
         property: "twitter:description",
         content: config.strings.en_US.hero.description,
       },
-      { property: "twitter:image", content: `${config.image}` },
+      { property: "twitter:image", content: config.image },
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       { rel: "stylesheet", href: "https://rsms.me/inter/inter.css" },
+      { rel: "search", type: "application/opensearchdescription+xml", href: "/opensearch.xml", title: config.name },
+    ],
+    script: [
+      {
+        type: "application/ld+json",
+        json: {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: config.name,
+          url: `https://${config.domain}`,
+          image: config.image,
+          sameAs: [
+            `https://github.com/${config.social.github}`,
+            `https://twitter.com/${config.social.twitter}`,
+            `https://linkedin.com/in/${config.social.linkedin}`,
+            `https://instagram.com/${config.social.instagram}`,
+          ],
+          jobTitle: "Software Engineer",
+          description: config.strings.en_US.hero.description,
+          email: config.email,
+        },
+      },
     ],
   },
 
@@ -153,6 +176,12 @@ const nuxtConfig = {
       short_name: config.name.split(" ")[0],
       description: config.strings.en_US.hero.description,
     },
+  },
+
+  robots: {
+    UserAgent: "*",
+    Allow: "/",
+    Sitemap: `https://${config.domain}/sitemap.xml`,
   },
 
   sitemap: {
@@ -223,6 +252,21 @@ const nuxtConfig = {
         const { text } = require("reading-time")(document.text);
         document.readingTime = text;
       }
+    },
+    "generate:done": async (generator) => {
+      const { $content } = require("@nuxt/content");
+      const fs = require("fs");
+      const path = require("path");
+      const distDir = generator.nuxt.options.generate.dir || "dist";
+
+      const contentDir = path.join(distDir, "content");
+      if (!fs.existsSync(contentDir)) fs.mkdirSync(contentDir, { recursive: true });
+
+      const posts = await $content("posts").without(["body", "toc"]).fetch();
+      fs.writeFileSync(path.join(contentDir, "posts.json"), JSON.stringify(posts, null, 2));
+
+      const projects = await $content("projects").without(["body", "toc"]).fetch();
+      fs.writeFileSync(path.join(contentDir, "projects.json"), JSON.stringify(projects, null, 2));
     },
   },
 };

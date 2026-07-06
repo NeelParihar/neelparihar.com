@@ -14,26 +14,18 @@ export default {
       title: `home - ${this.$config.name}`,
     }
   },
-  data() {
-    return {
-      posts: null
-    }
-  },
-  async created() {
-    const fetchDocsLabel = 'fetchAllPosts'
-    console.time(fetchDocsLabel)
+  async asyncData({ $content, $config }) {
+    if (!$config.blog.enabled) return { posts: null }
     try {
-      const posts = await this.$content('posts')
+      const posts = await $content('posts')
         .without(['body', 'toc', 'dir', 'extension', 'path', 'tags'])
         .limit(3)
         .skip(0)
         .sortBy('createdAt', 'desc')
         .fetch()
-      this.posts = posts
+      return { posts }
     } catch (e) {
-      console.error(e)
-    } finally {
-      console.timeEnd(fetchDocsLabel)
+      return { posts: null }
     }
   },
 }

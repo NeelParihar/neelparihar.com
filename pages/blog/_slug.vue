@@ -106,18 +106,45 @@ export default {
     }
   },
   head() {
+    const postUrl = `https://${this.$config.domain}/blog/${this.post.slug}`
+    const postImage = this.post.image || this.$config.image
     return {
       title: this.post.title + ` -- blog -- ${this.$config.name}`,
       meta: [
         { hid: 'description', name: 'description', content: this.post.description },
-        // Open Graph
         { hid: 'og:title', property: 'og:title', content: this.post.title },
         { hid: 'og:description', property: 'og:description', content: this.post.description },
-        { hid: 'og:image', property: 'og:image', content: this.post.image || this.$config.image },
-        // Twitter Card
+        { hid: 'og:image', property: 'og:image', content: postImage },
+        { hid: 'og:type', property: 'og:type', content: 'article' },
+        { hid: 'og:url', property: 'og:url', content: postUrl },
         { hid: 'twitter:title', name: 'twitter:title', content: this.post.title },
         { hid: 'twitter:description', name: 'twitter:description', content: this.post.description },
-        { hid: 'twitter:image', name: 'twitter:image', content: this.post.image || this.$config.image }
+        { hid: 'twitter:image', name: 'twitter:image', content: postImage }
+      ],
+      script: [
+        {
+          type: 'application/ld+json',
+          json: {
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: this.post.title,
+            description: this.post.description,
+            image: postImage,
+            url: postUrl,
+            datePublished: this.post.createdAt,
+            author: {
+              '@type': 'Person',
+              name: this.post.author?.name,
+              url: this.post.author?.twitter ? `https://twitter.com/${this.post.author.twitter}` : undefined,
+            },
+            publisher: {
+              '@type': 'Person',
+              name: this.$config.name,
+              url: `https://${this.$config.domain}`,
+            },
+            keywords: (this.post.tags || []).join(', '),
+          }
+        }
       ]
     }
   },

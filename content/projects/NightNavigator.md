@@ -6,7 +6,7 @@ tech: android java gcp firebase
 logo: /images/nightlife.png
 # website: https://lookatx.dev
 github: https://github.com/NeelParihar/night-navigator
-twitter: neelparihar0
+twitter: neelpariharr
 ---
 
 

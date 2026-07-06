@@ -6,7 +6,7 @@ tech: react material-ui firebase
 logo: /images/cbpoll.png
 website: https://cbpoll.neelparihar.com/
 github: https://github.com/NeelParihar/cbpoll
-twitter: neelparihar0
+twitter: neelpariharr
 ---
 
 Designed and developed a web app for creating an online poll, where users can give votes to a poll anonymously.

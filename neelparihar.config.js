@@ -3,7 +3,7 @@
 export default {
   name: "Neel Parihar",
   domain: "neelparihar.com", // add without https:// , used in meta tags and share urls
-  image: "/images/avatar.png",
+  image: "https://neelparihar.com/images/avatar.png",
   email: "contact@neelparihar.com",
   googleAnalyticsV4: {
     enabled: true,

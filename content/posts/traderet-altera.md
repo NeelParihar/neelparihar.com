@@ -1,6 +1,7 @@
 ---
 id: 2
 title: Traderet altera id subitis coeunt in haut
+description: A placeholder interview post covering lorem ipsum topics and sample interview content.
 createdAt: "2020-05-22 5:00:00"
 # image field is not mandatory
 # you can skip it to keep the size of blog cards small
@@ -11,9 +12,9 @@ tags:
   - ipsum
 category: interview
 author:
-  name: karn
-  twitter: gyankarn
-  image: /images/bigheadkarngyan.png
+  name: Neel Parihar
+  twitter: neelpariharr
+  image: /images/avatar.png
 ---
 
 # Traderet altera id subitis coeunt in haut

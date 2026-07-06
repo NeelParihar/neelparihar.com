@@ -1,9 +1,9 @@
 <template>
   <div class="relative max-w-7xl border-r border-l border-dashed border-gray-200 py-6 mx-auto">
     <div data-aos="fade-up" class="text-center">
-      <h2 class="text-2xl tracking-tight font-extrabold text-gray-800">
+      <h1 class="text-2xl tracking-tight font-extrabold text-gray-800">
         {{ $t('projects.header') }}
-      </h2>
+      </h1>
       <p class="mt-2 px-2 max-w-2xl mx-auto text-sm leading-7 text-gray-400">
         {{ $t('projects.subtext') }}
       </p>

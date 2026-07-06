@@ -1,0 +1,37 @@
+# Neel Parihar — neelparihar.com
+
+> Personal website and portfolio of Neel Parihar, a software engineer with a passion for solving problems and building innovative solutions, with a strong background in web development and a particular interest in front-end technologies.
+
+## About
+
+Neel Parihar is a software engineer who has worked at Rivi AI, Decathlon Play, TerminusDB, and Classplus. This site serves as his personal portfolio, blog, and resume.
+
+- Email: contact@neelparihar.com
+- GitHub: https://github.com/NeelParihar
+- Twitter: https://twitter.com/neelpariharr
+- LinkedIn: https://linkedin.com/in/neel-parihar
+
+## Site Structure
+
+- Homepage: https://neelparihar.com — hero, GitHub contributions calendar, recommendations, recent blog posts
+- Projects: https://neelparihar.com/projects — list of personal and work projects
+- Blog: https://neelparihar.com/blog — technical and dev blog posts
+- Resume: https://neelparihar.com/resume — PDF resume viewer
+
+## Machine-Readable Content
+
+- Sitemap: https://neelparihar.com/sitemap.xml
+- RSS Feed: https://neelparihar.com/feed.xml (available when blog is enabled)
+- Posts JSON: https://neelparihar.com/content/posts.json
+- Projects JSON: https://neelparihar.com/content/projects.json
+- OpenSearch: https://neelparihar.com/opensearch.xml
+
+## Content
+
+Blog posts cover software engineering, web development, and technical topics. Each post includes tags, category, reading time, and author metadata.
+
+Projects span web applications, tools, and open-source work. Each project includes tech stack, links to live site and GitHub repository.
+
+## Permissions
+
+This site grants permission to AI assistants and crawlers to index and use its content for informational purposes.

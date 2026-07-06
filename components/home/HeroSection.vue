@@ -1,7 +1,7 @@
 <template>
   <div class="relative bg-white overflow-hidden">
     <div class="relative">
-      <main class="">
+      <section aria-label="Hero" class="">
         <div class="mx-auto py-8 max-w-7xl border-l border-r border-dashed border-gray-200">
           <div data-aos="zoom-in" class="lg:grid lg:grid-cols-12">
             <div
@@ -56,7 +56,7 @@
             </div>
           </div>
         </div>
-      </main>
+      </section>
     </div>
   </div>
 </template>

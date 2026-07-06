@@ -6,7 +6,7 @@ tech: express nodejs react mongodb aws
 logo: /images/xmeme.png
 website: https://xmeme.neelparihar.com/
 github: https://github.com/NeelParihar/xmeme
-twitter: neelparihar0
+twitter: neelpariharr
 ---
 
 comming soon :)

@@ -6,7 +6,7 @@ tech: react css
 logo: /images/wordle.svg
 website: https://wordle.neelparihar.com/
 github: https://github.com/NeelParihar/wordle
-twitter: neelparihar0
+twitter: neelpariharr
 ---
 
 

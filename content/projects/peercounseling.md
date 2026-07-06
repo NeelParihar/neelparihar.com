@@ -6,7 +6,7 @@ tech: react firebase bootstrap
 logo: /images/secure.png
 website: https://peercounseling.netlify.app/
 # github: https://github.com/ApniKaksha
-twitter: neelparihar0
+twitter: neelpariharr
 ---
 
 comming soon :)
