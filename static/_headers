@@ -1,0 +1,5 @@
+/*
+  Link: <https://neelparihar.com/sitemap.xml>; rel="sitemap", <https://neelparihar.com/llms.txt>; rel="describedby"
+
+/posts/*.md
+  Content-Type: text/markdown; charset=utf-8

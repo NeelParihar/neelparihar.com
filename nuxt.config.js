@@ -178,11 +178,18 @@ const nuxtConfig = {
     },
   },
 
-  robots: {
-    UserAgent: "*",
-    Allow: "/",
-    Sitemap: `https://${config.domain}/sitemap.xml`,
-  },
+  robots: [
+    { UserAgent: "*", Allow: "/", Sitemap: `https://${config.domain}/sitemap.xml` },
+    { UserAgent: "GPTBot", Allow: "/" },
+    { UserAgent: "ClaudeBot", Allow: "/" },
+    { UserAgent: "anthropic-ai", Allow: "/" },
+    { UserAgent: "PerplexityBot", Allow: "/" },
+    { UserAgent: "Applebot-Extended", Allow: "/" },
+    { UserAgent: "cohere-ai", Allow: "/" },
+    { UserAgent: "Googlebot", Allow: "/" },
+    { UserAgent: "Bytespider", Allow: "/" },
+    { UserAgent: "CCBot", Allow: "/" },
+  ],
 
   sitemap: {
     hostname: `https://${config.domain}`,
@@ -267,6 +274,14 @@ const nuxtConfig = {
 
       const projects = await $content("projects").without(["body", "toc"]).fetch();
       fs.writeFileSync(path.join(contentDir, "projects.json"), JSON.stringify(projects, null, 2));
+
+      // Copy raw markdown files to dist/posts/ for content negotiation
+      const postsDir = path.join(distDir, "posts");
+      if (!fs.existsSync(postsDir)) fs.mkdirSync(postsDir, { recursive: true });
+      const srcDir = path.join(__dirname, "content", "posts");
+      fs.readdirSync(srcDir).filter(f => f.endsWith(".md")).forEach(file => {
+        fs.copyFileSync(path.join(srcDir, file), path.join(postsDir, file));
+      });
     },
   },
 };
