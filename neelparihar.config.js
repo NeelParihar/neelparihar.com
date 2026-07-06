@@ -99,6 +99,14 @@ export default {
         content:
           "Neel worked full-time with TerminusDB for around 1 year. He is a very strong full-stack engineer who can create pixel-perfect frontends while being able to work on complex nodejs projects such as creating database sdk's. He is a quick learner, a great team player, and has a very strong work ethic. You can rely on him that things will be done with utmost quality.",
       },
+      {
+        name: "Ankita",
+        designation: "VP Product, Rivi AI",
+        image: "/images/ankita.jpeg",
+        linkedin: "https://www.linkedin.com/in/chaudhary-ankita/",
+        content:
+          "Neel brought great speed, strong frontend skills, and a real focus on quality to his work. From building our AI chat experience for complex travel use cases to leading frontend efforts for clients like Decathlon Play, he made meaningful contributions throughout his time with us. He may be on the quieter side, but he more than makes up for it with his sharp skillset and ability to deliver. I'm really glad we got to work together and wish him the very best for what's ahead. 😊",
+      },
     ],
   },
   loadingIndicator: {
