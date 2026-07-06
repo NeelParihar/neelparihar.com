@@ -275,13 +275,85 @@ const nuxtConfig = {
       const projects = await $content("projects").without(["body", "toc"]).fetch();
       fs.writeFileSync(path.join(contentDir, "projects.json"), JSON.stringify(projects, null, 2));
 
-      // Copy raw markdown files to dist/posts/ for content negotiation
+      // Copy raw markdown files to dist/posts/ and dist/projects/
       const postsDir = path.join(distDir, "posts");
       if (!fs.existsSync(postsDir)) fs.mkdirSync(postsDir, { recursive: true });
-      const srcDir = path.join(__dirname, "content", "posts");
-      fs.readdirSync(srcDir).filter(f => f.endsWith(".md")).forEach(file => {
-        fs.copyFileSync(path.join(srcDir, file), path.join(postsDir, file));
-      });
+      fs.readdirSync(path.join(__dirname, "content", "posts"))
+        .filter(f => f.endsWith(".md"))
+        .forEach(f => fs.copyFileSync(path.join(__dirname, "content", "posts", f), path.join(postsDir, f)));
+
+      const projectsMdDir = path.join(distDir, "projects");
+      if (!fs.existsSync(projectsMdDir)) fs.mkdirSync(projectsMdDir, { recursive: true });
+      fs.readdirSync(path.join(__dirname, "content", "projects"))
+        .filter(f => f.endsWith(".md"))
+        .forEach(f => fs.copyFileSync(path.join(__dirname, "content", "projects", f), path.join(projectsMdDir, f)));
+
+      // Generate per-page markdown summaries for the edge function to serve
+      const mdDir = path.join(distDir, "md");
+      if (!fs.existsSync(mdDir)) fs.mkdirSync(mdDir, { recursive: true });
+
+      const allProjects = await $content("projects").without(["body", "toc"]).sortBy("id", "asc").fetch();
+
+      const indexMd = [
+        `---`,
+        `title: ${config.name} — Software Engineer`,
+        `description: ${config.strings.en_US.hero.description}`,
+        `url: https://${config.domain}`,
+        `---`,
+        ``,
+        `# ${config.name}`,
+        ``,
+        config.strings.en_US.hero.description,
+        ``,
+        `## Worked At`,
+        ``,
+        ...config.workedAt.meta.map(w => `- [${w.name}](${w.url})`),
+        ``,
+        `## Projects`,
+        ``,
+        ...allProjects.map(p => `- **[${p.title}](https://${config.domain}/projects/${p.slug})** — ${p.description}`),
+        ``,
+        `## Recommendations`,
+        ``,
+        ...config.recommendations.meta.map(r => `- **${r.name}** (${r.designation}): "${r.content}"`),
+        ``,
+        `## Contact`,
+        ``,
+        `- Email: ${config.email}`,
+        `- GitHub: https://github.com/${config.social.github}`,
+        `- Twitter: https://twitter.com/${config.social.twitter}`,
+        `- LinkedIn: https://linkedin.com/in/${config.social.linkedin}`,
+        ``,
+        `## Links`,
+        ``,
+        `- Projects: https://${config.domain}/projects`,
+        `- Resume: https://${config.domain}/resume`,
+      ].join("\n");
+      fs.writeFileSync(path.join(mdDir, "index.md"), indexMd);
+
+      const projectsListMd = [
+        `---`,
+        `title: Projects — ${config.name}`,
+        `description: ${config.strings.en_US.projects.subtext}`,
+        `url: https://${config.domain}/projects`,
+        `---`,
+        ``,
+        `# Projects`,
+        ``,
+        config.strings.en_US.projects.subtext,
+        ``,
+        ...allProjects.flatMap(p => [
+          `## [${p.title}](https://${config.domain}/projects/${p.slug})`,
+          ``,
+          p.description,
+          ``,
+          `- **Tech:** ${p.tech}`,
+          p.website ? `- **Website:** ${p.website}` : null,
+          p.github ? `- **GitHub:** ${p.github}` : null,
+          ``,
+        ].filter(Boolean)),
+      ].join("\n");
+      fs.writeFileSync(path.join(mdDir, "projects.md"), projectsListMd);
     },
   },
 };

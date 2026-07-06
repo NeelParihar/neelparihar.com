@@ -3,3 +3,9 @@
 
 /posts/*.md
   Content-Type: text/markdown; charset=utf-8
+
+/projects/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/md/*.md
+  Content-Type: text/markdown; charset=utf-8
