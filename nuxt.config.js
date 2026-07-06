@@ -155,7 +155,6 @@ const nuxtConfig = {
   modules: [
     "@nuxtjs/axios",
     "@nuxt/content",
-    "@nuxtjs/robots",
     "nuxt-i18n",
     // '@nuxtjs/pwa',
     "@nuxtjs/toast",
@@ -177,19 +176,6 @@ const nuxtConfig = {
       description: config.strings.en_US.hero.description,
     },
   },
-
-  robots: [
-    { UserAgent: "*", Allow: "/", Sitemap: `https://${config.domain}/sitemap.xml` },
-    { UserAgent: "GPTBot", Allow: "/" },
-    { UserAgent: "ClaudeBot", Allow: "/" },
-    { UserAgent: "anthropic-ai", Allow: "/" },
-    { UserAgent: "PerplexityBot", Allow: "/" },
-    { UserAgent: "Applebot-Extended", Allow: "/" },
-    { UserAgent: "cohere-ai", Allow: "/" },
-    { UserAgent: "Googlebot", Allow: "/" },
-    { UserAgent: "Bytespider", Allow: "/" },
-    { UserAgent: "CCBot", Allow: "/" },
-  ],
 
   sitemap: {
     hostname: `https://${config.domain}`,
