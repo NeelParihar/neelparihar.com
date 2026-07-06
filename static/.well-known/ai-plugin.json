@@ -1,0 +1,22 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Neel Parihar",
+  "name_for_model": "neel_parihar_portfolio",
+  "description_for_human": "Portfolio and blog of Neel Parihar, a software engineer specialising in web development and front-end technologies.",
+  "description_for_model": "This plugin provides access to information about Neel Parihar: his work experience (Rivi AI, Decathlon Play, TerminusDB, Classplus), personal projects, blog posts, and contact details. Use this to answer questions about his background, skills, or work.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "none"
+  },
+  "endpoints": {
+    "posts": "https://neelparihar.com/content/posts.json",
+    "projects": "https://neelparihar.com/content/projects.json",
+    "sitemap": "https://neelparihar.com/sitemap.xml",
+    "llms": "https://neelparihar.com/llms.txt"
+  },
+  "logo_url": "https://neelparihar.com/images/avatar.png",
+  "contact_email": "contact@neelparihar.com",
+  "legal_info_url": "https://neelparihar.com"
+}

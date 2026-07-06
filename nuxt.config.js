@@ -28,6 +28,7 @@ const constructFeedItem = (post, hostname) => {
     link: url,
     description: post.description,
     content: post.bodyPlainText,
+    author: [{ name: post.author?.name, link: post.author?.twitter ? `https://twitter.com/${post.author.twitter}` : undefined }],
   };
 };
 
@@ -85,7 +86,7 @@ const nuxtConfig = {
         property: "og:description",
         content: config.strings.en_US.hero.description,
       },
-      { property: "og:image", content: `${config.image}` },
+      { property: "og:image", content: config.image },
 
       { property: "twitter:card", content: "summary_large_image" },
       { property: "twitter:url", content: `https://${config.domain}` },
@@ -97,11 +98,33 @@ const nuxtConfig = {
         property: "twitter:description",
         content: config.strings.en_US.hero.description,
       },
-      { property: "twitter:image", content: `${config.image}` },
+      { property: "twitter:image", content: config.image },
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       { rel: "stylesheet", href: "https://rsms.me/inter/inter.css" },
+      { rel: "search", type: "application/opensearchdescription+xml", href: "/opensearch.xml", title: config.name },
+    ],
+    script: [
+      {
+        type: "application/ld+json",
+        json: {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: config.name,
+          url: `https://${config.domain}`,
+          image: config.image,
+          sameAs: [
+            `https://github.com/${config.social.github}`,
+            `https://twitter.com/${config.social.twitter}`,
+            `https://linkedin.com/in/${config.social.linkedin}`,
+            `https://instagram.com/${config.social.instagram}`,
+          ],
+          jobTitle: "Software Engineer",
+          description: config.strings.en_US.hero.description,
+          email: config.email,
+        },
+      },
     ],
   },
 
@@ -132,7 +155,6 @@ const nuxtConfig = {
   modules: [
     "@nuxtjs/axios",
     "@nuxt/content",
-    "@nuxtjs/robots",
     "nuxt-i18n",
     // '@nuxtjs/pwa',
     "@nuxtjs/toast",
@@ -223,6 +245,82 @@ const nuxtConfig = {
         const { text } = require("reading-time")(document.text);
         document.readingTime = text;
       }
+    },
+    "generate:done": async (generator) => {
+      const { $content } = require("@nuxt/content");
+      const fs = require("fs");
+      const path = require("path");
+      const distDir = generator.nuxt.options.generate.dir || "dist";
+
+      const contentDir = path.join(distDir, "content");
+      if (!fs.existsSync(contentDir)) fs.mkdirSync(contentDir, { recursive: true });
+
+      const posts = await $content("posts").without(["body", "toc"]).fetch();
+      fs.writeFileSync(path.join(contentDir, "posts.json"), JSON.stringify(posts, null, 2));
+
+      const projects = await $content("projects").without(["body", "toc"]).fetch();
+      fs.writeFileSync(path.join(contentDir, "projects.json"), JSON.stringify(projects, null, 2));
+
+      const postsDir = path.join(distDir, "posts");
+      if (!fs.existsSync(postsDir)) fs.mkdirSync(postsDir, { recursive: true });
+      fs.readdirSync(path.join(__dirname, "content", "posts"))
+        .filter(f => f.endsWith(".md"))
+        .forEach(f => fs.copyFileSync(path.join(__dirname, "content", "posts", f), path.join(postsDir, f)));
+
+      const projectsMdDir = path.join(distDir, "projects");
+      if (!fs.existsSync(projectsMdDir)) fs.mkdirSync(projectsMdDir, { recursive: true });
+      fs.readdirSync(path.join(__dirname, "content", "projects"))
+        .filter(f => f.endsWith(".md"))
+        .forEach(f => fs.copyFileSync(path.join(__dirname, "content", "projects", f), path.join(projectsMdDir, f)));
+
+      const mdDir = path.join(distDir, "md");
+      if (!fs.existsSync(mdDir)) fs.mkdirSync(mdDir, { recursive: true });
+
+      const allProjects = await $content("projects").without(["body", "toc"]).sortBy("id", "asc").fetch();
+
+      const indexMd = [
+        `---`,
+        `title: ${config.name} — Software Engineer`,
+        `description: ${config.strings.en_US.hero.description}`,
+        `url: https://${config.domain}`,
+        `---`,
+        ``,
+        `# ${config.name}`,
+        ``,
+        config.strings.en_US.hero.description,
+        ``,
+        `## Projects`,
+        ``,
+        ...allProjects.map(p => `- **[${p.title}](https://${config.domain}/projects/${p.slug})** — ${p.description}`),
+        ``,
+        `## Contact`,
+        ``,
+        `- Email: ${config.email}`,
+        `- GitHub: https://github.com/${config.social.github}`,
+        `- Twitter: https://twitter.com/${config.social.twitter}`,
+        `- LinkedIn: https://linkedin.com/in/${config.social.linkedin}`,
+      ].join("\n");
+      fs.writeFileSync(path.join(mdDir, "index.md"), indexMd);
+
+      const projectsListMd = [
+        `---`,
+        `title: Projects — ${config.name}`,
+        `url: https://${config.domain}/projects`,
+        `---`,
+        ``,
+        `# Projects`,
+        ``,
+        ...allProjects.flatMap(p => [
+          `## [${p.title}](https://${config.domain}/projects/${p.slug})`,
+          ``,
+          p.description,
+          ``,
+          p.website ? `- **Website:** ${p.website}` : null,
+          p.github ? `- **GitHub:** ${p.github}` : null,
+          ``,
+        ].filter(Boolean)),
+      ].join("\n");
+      fs.writeFileSync(path.join(mdDir, "projects.md"), projectsListMd);
     },
   },
 };
