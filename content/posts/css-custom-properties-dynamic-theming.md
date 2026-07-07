@@ -4,7 +4,6 @@ title: "CSS Custom Properties: The Underrated Superpower for Dynamic Theming"
 description: "CSS variables aren't just for colours. Used correctly, they unlock runtime theming, component scoping, and animation tricks that preprocessors simply can't do."
 long_description: "A practical guide to CSS custom properties beyond the basics — covering cascading scope, JavaScript interop, animation with @property, and building a zero-JavaScript dark mode toggle."
 createdAt: "2025-03-15T09:00:00.000Z"
-image: "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 tags:
   - css
   - theming

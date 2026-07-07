@@ -4,7 +4,6 @@ title: "The Future of Frontend: Vibe Coding, Agents, and What Actually Survives"
 description: "Everyone's arguing about whether AI will replace frontend developers. That's the wrong argument. Here's what's actually changing, and what isn't."
 long_description: "A philosophical and technical look at where frontend development is heading, from vibe coding to agentic workflows, and what it means for the craft, the role, and the people who actually care about building good UIs."
 createdAt: "2026-05-04T09:00:00.000Z"
-image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 tags:
   - ai
   - frontend

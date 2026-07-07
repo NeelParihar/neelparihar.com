@@ -4,7 +4,6 @@ title: "Building Lag-Free Animations: requestAnimationFrame, GPU Layers & the Br
 description: "Most animation jank comes from the same 3 mistakes. Here's how to identify and fix them using the browser's render pipeline to your advantage."
 long_description: "A deep-dive into how browsers paint frames, when GPU acceleration kicks in, and how to write animations that stay silky at 60fps even on low-end devices."
 createdAt: "2025-03-01T09:00:00.000Z"
-image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
 tags:
   - performance
   - css
