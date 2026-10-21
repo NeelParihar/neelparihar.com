@@ -27,7 +27,6 @@
     "autoprefixer": "^10.4.20",
     "core-js": "^3.9.1",
     "date-fns": "^2.22.1",
-    "fibers": "^5.0.0",
     "firebase": "^8.6.7",
     "github-calendar": "^2.3.4",
     "nuxt": "^2.15.3",
