@@ -16,14 +16,14 @@ How to use this file
 - Anything in section 11 means: stop, update this file, and ask a human.
 -->
 
-## 1. Context — why are we doing this?
+## 1. Context: why are we doing this?
 <!-- The problem, who has it, and why now. Link to data, tickets or customer feedback. 3–6 sentences. -->
 
 ## 2. Goal and non-goals
 **Goal:** <one sentence describing the outcome, not the implementation>
 
 **Non-goals:**
-- <explicitly out of scope — things a helpful agent might otherwise "also fix">
+- <explicitly out of scope: things a helpful agent might otherwise "also fix">
 - <…>
 
 ## 3. Success criteria
@@ -42,14 +42,14 @@ How to use this file
 
 ## 5. Current state
 <!-- Drafted by the agent. What exists today that this feature touches. -->
-- `<path/to/file>` — <what it does, why it matters here>
+- `<path/to/file>`: <what it does, why it matters here>
 - <relevant data models, endpoints, jobs, flags>
 
 ## 6. Proposed approach
 <!-- Drafted by the agent. The design in prose. Include alternatives considered and why they were rejected. -->
 
 **Alternatives considered:**
-- <option> — rejected because <reason>
+- <option>: rejected because <reason>
 
 ## 7. Interfaces and contracts
 <!-- New or changed APIs, function signatures, DB schema, events, config, feature flags. -->
@@ -58,9 +58,9 @@ How to use this file
 
 ## 8. Implementation steps
 <!-- Ordered. Each step small, independently verifiable, and ideally one commit. -->
-- [ ] **Step 1:** <change> — *verify:* <command or check>
-- [ ] **Step 2:** <change> — *verify:* <command or check>
-- [ ] **Step 3:** <change> — *verify:* <command or check>
+- [ ] **Step 1:** <change>. *Verify:* <command or check>
+- [ ] **Step 2:** <change>. *Verify:* <command or check>
+- [ ] **Step 3:** <change>. *Verify:* <command or check>
 
 ## 9. Test plan and evals
 - **Unit:** <cases>
@@ -73,7 +73,7 @@ How to use this file
 - **Rollout:** <feature flag, % rollout, migration order>
 - **Rollback:** <exact steps to undo safely>
 
-## 11. Escalation triggers — stop and ask a human if…
+## 11. Escalation triggers: stop and ask a human if…
 - A step requires touching anything listed under "Must not touch".
 - The approach in section 6 turns out not to work and needs to change.
 - A success criterion can't be met, or seems wrong.
@@ -82,7 +82,7 @@ How to use this file
 - <feature-specific trigger>
 
 ## 12. Open questions
-- [ ] <question> — *owner:* <name>
+- [ ] <question>, *owner:* <name>
 
 ## 13. Decision log
 <!-- Append-only. Date · decision · reason. Distilled into MEMORIES.md when the feature ships. -->

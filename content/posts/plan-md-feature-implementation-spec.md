@@ -2,7 +2,7 @@
 id: 12
 title: "The Spec Before the Code: A plan.md Template for Feature Implementation"
 description: "The plan.md is the heart of spec-driven development: a feature spec written and approved before an agent writes a line of code. Here's the template, and the workflow around it."
-long_description: "A practical guide to the plan contract — the feature-level spec that ties system, skill and memory contracts to a specific piece of work. Includes a complete, downloadable plan.md template, a worked example, the human/agent split for each section, and how engineering leaders can use plan review as their main quality gate."
+long_description: "A practical guide to the plan contract, the feature-level spec that ties system, skill and memory contracts to a specific piece of work. Includes a complete, downloadable plan.md template, a worked example, the human/agent split for each section, and how engineering leaders can use plan review as their main quality gate."
 createdAt: "2026-11-12T09:00:00.000Z"
 series: "The Engineering Contract"
 seriesOrder: 5
@@ -52,12 +52,14 @@ The split between human and agent is the most important design choice in the tem
 
 ## The workflow
 
+![Plan workflow across human and agent lanes: human writes sections 1 to 4, agent drafts 5 to 11, human reviews the plan, agent implements and escalates when needed, human verifies against success criteria.](/images/blog/engineering-contract/plan-workflow.svg)
+
 1. **Human drafts sections 1–4.** Usually 15–30 minutes. If you can't write the success criteria, you're not ready to build the feature.
-2. **Agent drafts sections 5–11 in plan / read-only mode.** It reads the code, loads the relevant skills, and proposes an approach — without changing anything.
+2. **Agent drafts sections 5–11 in plan / read-only mode.** It reads the code, loads the relevant skills, and proposes an approach without changing anything.
 3. **Plan review.** A reviewer (tech lead, or a peer for small changes) approves, comments, or rejects. Status moves to `Approved`.
 4. **Agent implements step by step.** It ticks off steps in section 8, runs each step's verification, and appends to the decision log as it goes.
 5. **Escalation.** If any trigger in section 11 fires, the agent stops, updates the plan, and asks. It doesn't improvise its way around a constraint.
-6. **Verification against success criteria.** The PR is reviewed against section 3 — not against the reviewer's mood that day.
+6. **Verification against success criteria.** The PR is reviewed against section 3, not against the reviewer's mood that day.
 7. **Close the loop.** The PR description is generated from the plan. The decision log is distilled into `MEMORIES.md`. The plan is archived in `docs/plans/`.
 
 ## The template
@@ -83,14 +85,14 @@ How to use this file
 - Anything in section 11 means: stop, update this file, and ask a human.
 -->
 
-## 1. Context — why are we doing this?
+## 1. Context: why are we doing this?
 <!-- The problem, who has it, and why now. Link to data, tickets or customer feedback. 3–6 sentences. -->
 
 ## 2. Goal and non-goals
 **Goal:** <one sentence describing the outcome, not the implementation>
 
 **Non-goals:**
-- <explicitly out of scope — things a helpful agent might otherwise "also fix">
+- <explicitly out of scope: things a helpful agent might otherwise "also fix">
 - <…>
 
 ## 3. Success criteria
@@ -109,14 +111,14 @@ How to use this file
 
 ## 5. Current state
 <!-- Drafted by the agent. What exists today that this feature touches. -->
-- `<path/to/file>` — <what it does, why it matters here>
+- `<path/to/file>`: <what it does, why it matters here>
 - <relevant data models, endpoints, jobs, flags>
 
 ## 6. Proposed approach
 <!-- Drafted by the agent. The design in prose. Include alternatives considered and why they were rejected. -->
 
 **Alternatives considered:**
-- <option> — rejected because <reason>
+- <option>: rejected because <reason>
 
 ## 7. Interfaces and contracts
 <!-- New or changed APIs, function signatures, DB schema, events, config, feature flags. -->
@@ -125,9 +127,9 @@ How to use this file
 
 ## 8. Implementation steps
 <!-- Ordered. Each step small, independently verifiable, and ideally one commit. -->
-- [ ] **Step 1:** <change> — *verify:* <command or check>
-- [ ] **Step 2:** <change> — *verify:* <command or check>
-- [ ] **Step 3:** <change> — *verify:* <command or check>
+- [ ] **Step 1:** <change>. *Verify:* <command or check>
+- [ ] **Step 2:** <change>. *Verify:* <command or check>
+- [ ] **Step 3:** <change>. *Verify:* <command or check>
 
 ## 9. Test plan and evals
 - **Unit:** <cases>
@@ -140,7 +142,7 @@ How to use this file
 - **Rollout:** <feature flag, % rollout, migration order>
 - **Rollback:** <exact steps to undo safely>
 
-## 11. Escalation triggers — stop and ask a human if…
+## 11. Escalation triggers: stop and ask a human if…
 - A step requires touching anything listed under "Must not touch".
 - The approach in section 6 turns out not to work and needs to change.
 - A success criterion can't be met, or seems wrong.
@@ -149,7 +151,7 @@ How to use this file
 - <feature-specific trigger>
 
 ## 12. Open questions
-- [ ] <question> — *owner:* <name>
+- [ ] <question>, *owner:* <name>
 
 ## 13. Decision log
 <!-- Append-only. Date · decision · reason. Distilled into MEMORIES.md when the feature ships. -->
@@ -158,7 +160,7 @@ How to use this file
 
 ## A worked example (abridged)
 
-To make it concrete, here's what sections 1–4 might look like for a real-ish feature — exporting affiliate payouts as CSV. This is the part a human writes.
+To make it concrete, here's what sections 1–4 might look like for a real-ish feature: exporting affiliate payouts as CSV. This is the part a human writes.
 
 ```markdown
 # Plan: Affiliate payout CSV export
@@ -167,7 +169,7 @@ To make it concrete, here's what sections 1–4 might look like for a real-ish f
 > **Owner:** Payments tech lead
 > **Reviewers:** Payments tech lead, Finance ops
 
-## 1. Context — why are we doing this?
+## 1. Context: why are we doing this?
 Finance reconciles affiliate payouts manually by copying rows from the admin
 dashboard into a spreadsheet each month. It takes about two days and has caused
 two mis-payments this quarter. They need a downloadable export they can import
@@ -211,10 +213,10 @@ Teams new to this tend to fail in the same few ways:
 
 A few signals tell you whether plan contracts are working:
 
-- **Plan rejection rate.** Some rejections are healthy — that's the gate doing its job. Near zero means rubber-stamping. Very high means the human sections aren't clear enough.
+- **Plan rejection rate.** Some rejections are healthy, since that's the gate doing its job. Near zero means rubber-stamping. Very high means the human sections aren't clear enough.
 - **Rework after merge.** How often does a merged feature need follow-up fixes? This should drop.
 - **Escalation frequency.** Agents should escalate sometimes. Never escalating means the triggers are too loose or being ignored.
-- **Time from approved plan to merged PR.** This is where the speed-up should show — not in how fast people write plans.
+- **Time from approved plan to merged PR.** This is where the speed-up should show, not in how fast people write plans.
 
 ## What leaders should take from this post
 
@@ -223,4 +225,4 @@ A few signals tell you whether plan contracts are working:
 3. **Move your review effort upstream.** Review plans properly; review PRs against the plan.
 4. **Close the loop into memory** so every feature makes the next one easier.
 
-The plan says what *should* happen. The last piece of the stack decides what happens when reality disagrees. Last in the series: **Review and Escalation Contracts** — where humans stay in the loop, which contracts are optional, and how to roll all of this out.
+The plan says what *should* happen. The last piece of the stack decides what happens when reality disagrees. Last in the series is **Review and Escalation Contracts**, covering where humans stay in the loop, which contracts are optional, and how to roll all of this out.
