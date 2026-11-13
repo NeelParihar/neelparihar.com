@@ -103,6 +103,31 @@
                 </div>
               </header>
 
+              <!-- Series navigator -->
+              <nav
+                v-if="seriesPosts.length > 1"
+                class="max-w-4xl mx-auto mb-6 p-4 rounded-xl bg-gray-50 border border-gray-100"
+                aria-label="Series navigation"
+              >
+                <p class="text-xs font-semibold uppercase tracking-wider text-gray-600">
+                  Series &middot; {{ currentSeriesIndex + 1 }} of {{ seriesPosts.length }}
+                </p>
+                <p class="text-sm font-bold text-gray-900 mt-1 mb-3">{{ post.series }}</p>
+                <ol class="space-y-1">
+                  <li v-for="(p, i) in seriesPosts" :key="p.slug" class="text-sm flex gap-2">
+                    <span class="text-gray-400 w-4 shrink-0 text-right">{{ i + 1 }}.</span>
+                    <span v-if="p.slug === post.slug" class="font-semibold text-hot-pink">{{ p.title }}</span>
+                    <nuxt-link
+                      v-else
+                      :to="localePath(`/blog/${p.slug}`)"
+                      class="text-gray-600 hover:text-primary transition-colors"
+                    >
+                      {{ p.title }}
+                    </nuxt-link>
+                  </li>
+                </ol>
+              </nav>
+
               <!-- Post body -->
               <div class="prose break-words my-4 prose-sm max-w-4xl mx-auto" ref="articleContent">
                 <nuxt-content :document="post" />
@@ -228,8 +253,17 @@ export default {
         .fetch(),
     ])
 
+    const seriesPosts = post.series
+      ? await $content('posts')
+          .where({ series: post.series })
+          .only(['title', 'slug', 'seriesOrder'])
+          .sortBy('seriesOrder', 'asc')
+          .fetch()
+      : []
+
     return {
       post,
+      seriesPosts,
       prevPost: prevArr[0] || null,
       nextPost: nextArr[0] || null,
       related,
@@ -253,6 +287,9 @@ export default {
     },
     linkedInShareUrl() {
       return `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(this.postUrl)}`
+    },
+    currentSeriesIndex() {
+      return this.seriesPosts.findIndex((p) => p.slug === this.post.slug)
     },
     comments() {
       const comments = [...(this.$store.state.comments[this.post.slug] || [])]
