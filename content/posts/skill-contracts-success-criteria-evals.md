@@ -2,7 +2,7 @@
 id: 10
 title: "Skill Contracts: Surgical Domain Knowledge and Success Criteria That Aren't Vibes"
 description: "Skills give agents deep, task-specific knowledge only when they need it. The part most teams skip, success criteria and evals, is what makes them scale."
-long_description: "Skill contracts package domain knowledge, tool access, constraints and success criteria for a specific kind of task. This post explains how they differ from system contracts, why domain knowledge should be surgical, and why measurable success criteria and evals are what separate a repeatable engineering system from 'make me an app, make no mistakes'."
+long_description: "Skill contracts package domain knowledge, tool access, constraints and success criteria for a specific kind of task. This post explains how they differ from system contracts, why domain knowledge should be surgical, and why measurable success criteria and evals are what separate a repeatable engineering system from prompting and hoping."
 createdAt: "2026-11-10T09:00:00.000Z"
 series: "The Engineering Contract"
 seriesOrder: 3
@@ -18,9 +18,7 @@ author:
   image: /images/avatar.png
 ---
 
-There's a meme from the talk that I can't stop thinking about. A guy at a computer, typing: *"ok ChatGPT, make me an app that makes $1M/month. Don't make any mistakes."*
-
-It's funny because it's exactly how a lot of teams use agents. A goal, a vague constraint, and hope.
+Watch how most teams actually prompt an agent and you'll see the same pattern: a goal, a vague constraint like "don't break anything", and hope. Sometimes it works. When it doesn't, nobody can say exactly what went wrong, because nobody wrote down what "right" looked like.
 
 **Skill contracts** are the fix. They're where you encode *how your team does a specific kind of work*. Just as important, they define how you'll know it was done right.
 

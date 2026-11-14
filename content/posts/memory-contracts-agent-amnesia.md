@@ -18,9 +18,7 @@ author:
   image: /images/avatar.png
 ---
 
-The talk introduced memory contracts with a still from *Ghajini*. Its protagonist can't form new memories and runs his life on tattoos, Polaroids and notes to himself.
-
-It's the perfect metaphor. **Every agent session starts with amnesia.** Whatever it figured out yesterday is gone: the weird reason a test is flaky, the decision to use one library over another, the fact that the staging database is shared. Unless someone wrote it down.
+Here's a problem every team using agents runs into within the first week: **every agent session starts with amnesia.** Whatever it figured out yesterday is gone: the weird reason a test is flaky, the decision to use one library over another, the fact that the staging database is shared. Unless someone wrote it down.
 
 Memory is how you write it down. A **memory contract** is how you stop those notes from turning into a mess.
 
