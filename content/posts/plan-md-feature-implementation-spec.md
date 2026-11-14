@@ -37,6 +37,8 @@ The plan flips that. Instead of reviewing 2,000 lines of output, a reviewer read
 
 A wrong decision caught in the plan costs a comment. The same wrong decision caught in a PR costs a rewrite. Caught in production, it costs an incident.
 
+![The same wrong decision costs a comment when caught in the plan, a rewrite when caught in the PR, and an incident when caught in production.](/images/blog/engineering-contract/cost-of-catching.svg)
+
 **For leaders, this is the key shift: the plan becomes the unit of accountability, not the PR.**
 
 ## Who writes what
@@ -63,6 +65,8 @@ The split between human and agent is the most important design choice in the tem
 7. **Close the loop.** The PR description is generated from the plan. The decision log is distilled into `MEMORIES.md`. The plan is archived in `docs/plans/`.
 
 ## The template
+
+![The 13 sections of plan.md grouped by who writes them: humans write intent, the agent drafts the approach, tests and rollout are agent-drafted and human-approved, and open questions and the decision log are shared.](/images/blog/engineering-contract/plan-anatomy.svg)
 
 Here's the full template. You can also [download it as a file](/templates/plan.md) and drop it into `docs/plans/_template.md` in your repo.
 

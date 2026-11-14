@@ -63,6 +63,8 @@ Two things make escalation work in practice:
 
 The talk listed three more contracts with a question mark next to them: **traditional, boundary, and handoff.** They're real, and large organisations may want them formalised. But for most teams, the core stack already covers them.
 
+![Traditional contracts are covered by plan success criteria and skill evals, boundary contracts by AGENTS.md and skill tool access, and handoff contracts by plan-based PR descriptions and MEMORIES.md.](/images/blog/engineering-contract/optional-contracts.svg)
+
 ### Traditional contracts (classic test suites as the gate)
 
 - Evaluator agents already score output against success criteria.
