@@ -102,7 +102,7 @@ export default {
       {
         name: "Ankita Chaudhary",
         designation: "VP of Product & Strategy, Rivi",
-        image: "/images/ankita.jpeg",
+        image: "/images/avatar-placeholder.svg", // placeholder until a real photo is added
         linkedin: "https://www.linkedin.com/in/chaudhary-ankita/",
         content:
           "Neel brought great speed, strong frontend skills, and a real focus on quality to his work. From building our AI chat experience for complex travel use cases to leading frontend efforts for clients like Decathlon Play, he made meaningful contributions throughout his time with us. He may be on the quieter side, but he more than makes up for it with his sharp skillset and ability to deliver. I'm really glad we got to work together and wish him the very best for what's ahead. 😊",
